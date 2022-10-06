@@ -4,3 +4,8 @@
 
 layout: home
 ---
+
+Bu bir deneme yazısıdır
+
+[w1](/about.markdown)
+
