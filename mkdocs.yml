@@ -1,5 +1,11 @@
 site_name: Ilker MANSUR Personel Homepage
 site_url: ""
 nav:
-  - Home: index.md
+  - Home: 'index.md'
+  - Collaboration:
+      - CCIE-C: 'CCIE_C_V3.md'
+  - Network: 'Network.md'
+  - Wireless: 'Wireless.md'
+  - Devnet: 'Devnet.md'
+theme: readthedocs
   
