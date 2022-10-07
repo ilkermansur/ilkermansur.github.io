@@ -3,9 +3,15 @@ site_url: ""
 nav:
   - Home: 'index.md'
   - Collaboration:
-      - CCIE-C: 'CCIE_C_V3.md'
-  - Network: 'Network.md'
-  - Wireless: 'Wireless.md'
-  - Devnet: 'Devnet.md'
+      - CCIE Collaboration Version-3: 
+          - Week 1: Collaboration_Files/week_01.md
+          - Week 2: Collaboration_Files/week_02.md
+  - Network: 
+      Network: 'Network.md'
+  - Wireless:
+      Wireless: 'Wireless.md'
+  - Devnet: 
+      Devnet: 'Devnet.md'
 theme: readthedocs
+ 
   
