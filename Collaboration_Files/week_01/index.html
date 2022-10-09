@@ -565,13 +565,13 @@ utils network capture eth0 file rogue size 300000 src a.b.c.d
 <p><img alt="" src="../../images/2022-10-09-23-02-22.png" /></p>
 <p>When configuring QoS on our Cisco switches we need to think about our trust boundary. Simply said this basically means on which device are we going to trust the marking of the packets and Ethernet frames entering our network. If you are using IP phones, you can use those for marking and configure the switch to trust the traffic from the IP phone. If you don’t have any IP phones or don’t trust them, we can also configure the switch to do the marking. </p>
 <p>Let’s take a look at a switch to see how we can configure this trust boundary. I have a Cisco Catalyst 3560 that I will use for these examples. Before you do anything with QoS, don’t forget to enable it globally on your switch first:</p>
-<pre><code>3560Switch(config)#mls qos
+<pre><code class="language-text">3560Switch(config)#mls qos
 </code></pre>
 <p>Something you need to be aware of is that as soon as you enable QoS on your switch, it will <code>erase the marking</code> of all packets that are received! If you don’t want this to happen, you can use the following command:</p>
-<pre><code>3560Switch(config)#no mls qos rewrite ip dscp
+<pre><code class="language-text">3560Switch(config)#no mls qos rewrite ip dscp
 </code></pre>
 <p>Let’s continue by looking at the first command. We can take a look at the QoS settings for the interface with the show mls qos interface command. This will show you if you trust the marking of your packets or frames:</p>
-<pre><code>3560Switch#show mls qos interface fastEthernet 0/1
+<pre><code class="language-text">3560Switch#show mls qos interface fastEthernet 0/1
  FastEthernet0/1
  trust state: not trusted
  trust mode: not trusted
@@ -581,7 +581,7 @@ utils network capture eth0 file rogue size 300000 src a.b.c.d
  Trust device: none
 </code></pre>
 <p>Above you can see that we don’t trust anything at the moment. This is the default on Cisco switches.  We can trust packets based on the DSCP value, frames on the CoS value, or we can trust the IP phone. Here are some examples:</p>
-<pre><code>3560Switch(config-if)#mls qos trust cos/dscp/ipphone
+<pre><code class="language-text">3560Switch(config-if)#mls qos trust cos/dscp/ipphone
 </code></pre>
 <h4 id="qos-tools">QoS Tools</h4>
 <ul>
