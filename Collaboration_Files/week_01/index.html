@@ -60,9 +60,9 @@
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#ntp">NTP</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#phone-registration">PHONE REGISTRATION</a>
+    <li class="toctree-l4"><a class="reference internal" href="#phone-registration">Phone Registration</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#utils-command">UTILS COMMAND</a>
+    <li class="toctree-l4"><a class="reference internal" href="#utils-command">Utils Command</a>
     </li>
         </ul>
     </li>
@@ -212,7 +212,7 @@ Executing command with options:
 <p><img alt="" src="../../images/2022-10-09-20-34-42.png" /></p>
 <p><strong><em>For SIP Phones:</em></strong> It is mandatory that you configure Phone NTP References and assign them through the device pool. These references direct the SIP phone to an appropriate NTP server that can provide the network time. If a SIP phone cannot get its date/time from the provisioned “Phone NTP Reference” the phone receives this information when it registers with Unified Communications Manager.</p>
 <p><strong><em>For SCCP Phones:</em></strong> Phone NTP References are not required as SCCP phones obtain their network time from Unified Communications Manager directly through SCCP signaling.</p>
-<h4 id="phone-registration">PHONE REGISTRATION</h4>
+<h4 id="phone-registration">Phone Registration</h4>
 <p>This document covers the IP Phone Registration Process with the Cisco Unified Communications Manager (CUCM). It covers both SCCP and SIP Phone Registration Process to help the beginners to understand the basics of IP Phone boot process better which will help in Configuration and Troubleshooting the Network related issues easily.</p>
 <p><br><br>
 <strong>SCCP</strong><br><br>
@@ -441,7 +441,7 @@ SIP Phones use a different set of steps to achieve the same goal. Steps 1 to 4 a
 - (13) The phone downloads the softkey configurations from TFTP. <br>
 - (14) The phone downloads custom ringtones (if any) from TFTP. <br></p>
 <p><img alt="" src="../../images/2022-10-09-20-51-21.png" /></p>
-<h4 id="utils-command">UTILS COMMAND</h4>
+<h4 id="utils-command">Utils Command</h4>
 <p><a href="https://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cucm/cli_ref/12_5_1/cucm_b_cli-reference-guide-1251.html">Reference</a><br></p>
 <p><strong>Some Useful "UTILS" Commands :</strong>
 <br>
@@ -493,6 +493,67 @@ utils network traceroute
 <br>
 <br></p>
 <h3 id="qos">QoS</h3>
+<p><strong>Types of Data</strong></p>
+<ul>
+<li>Interactive Data : Human to Human  (Voice,Video etc.)</li>
+<li>Non-interactive Data : Human to machine or Machine to Machine (Http traffic, backup traffic, FTP etc.)</li>
+</ul>
+<hr />
+<p><strong>Data Characteristics</strong></p>
+<ul>
+<li>Bandwidth<ul>
+<li>30-128kbps for voice, 384-20.000 for video</li>
+</ul>
+</li>
+<li>Latency<ul>
+<li>150ms for voice, 200-400ms for video (one way)</li>
+</ul>
+</li>
+<li>Jitter<ul>
+<li>jitter &lt;= 30ms for voice, jitter &lt;= 30-50ms for video</li>
+</ul>
+</li>
+<li>Loss<ul>
+<li>Loss &lt;= %1 for voice, Loss &lt;= %01-1 for video</li>
+</ul>
+</li>
+</ul>
+<p><strong>PS :</strong> Why there are lots of differences between voice and video ? (Hint:iframe) </p>
+<hr />
+<p><img alt="" src="../../images/2022-10-09-21-31-26.png" /></p>
+<p><strong>QoS Tools</strong></p>
+<ul>
+<li>Classification &amp; Marking</li>
+<li>Policing &amp; Shaping</li>
+<li>Congestion Management</li>
+<li>Congestion Avoidance</li>
+</ul>
+<p><strong>PS :</strong> Don’t mix up TOS (Type of Service) and COS (Class of Service). The first one is found in the header of an IP packet (layer 3) and the second one is found in the header of 802.1Q (layer 2). It’s used for Quality of Service on trunk links.</p>
+<p><img alt="" src="../../images/2022-10-09-21-34-01.png" /></p>
+<p><strong>Ps :</strong> In 1998, define TOS byte like below.</p>
+<p><img alt="" src="../../images/2022-10-09-21-35-25.png" /></p>
+<p>DSCP value define in <a href="https://www.rfc-editor.org/rfc/rfc2474">RFC 2474</a> as a 6 bit. Its decimal value between 0-63.  We have 64 bits for define traffic. In this point we need predefine marks which are accepted by most vendors. Sometimes we need backward compatiple marking for convert DSCP to COS... As you know we can use Qos in L2 or L3 or both. Because of this it should be backward compatiple.  </p>
+<p><strong>Per Hop Behaviour (PHB)</strong></p>
+<ul>
+<li>Default Forwarding (DF)<ul>
+<li>All DSCP bits are <code>ZERO</code>. Default behaviour</li>
+</ul>
+</li>
+<li>Class Sector (CS)<ul>
+<li>It is for backward compatiple</li>
+<li>Use only 3 bit (IPP)</li>
+</ul>
+</li>
+<li>Assured Forwarding (AF)<ul>
+<li>It has 4 class and 3 Drop probability (DP)</li>
+</ul>
+</li>
+<li>Explicit Forwarding (EF)<ul>
+<li>It used for <code>Voice</code> traffic.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../../images/2022-10-09-21-38-52.png" /></p>
               
             </div>
           </div><footer>
