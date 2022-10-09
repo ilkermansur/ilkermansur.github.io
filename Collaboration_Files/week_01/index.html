@@ -60,7 +60,9 @@
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#ntp">NTP</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#phone-registration">Phone Registration</a>
+    <li class="toctree-l4"><a class="reference internal" href="#phone-registration">PHONE REGISTRATION</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#utils-command">Utils Command</a>
     </li>
         </ul>
     </li>
@@ -208,7 +210,7 @@ Executing command with options:
 <p><img alt="" src="../../images/2022-10-09-20-34-42.png" /></p>
 <p><strong><em>For SIP Phones:</em></strong> It is mandatory that you configure Phone NTP References and assign them through the device pool. These references direct the SIP phone to an appropriate NTP server that can provide the network time. If a SIP phone cannot get its date/time from the provisioned “Phone NTP Reference” the phone receives this information when it registers with Unified Communications Manager.</p>
 <p><strong><em>For SCCP Phones:</em></strong> Phone NTP References are not required as SCCP phones obtain their network time from Unified Communications Manager directly through SCCP signaling.</p>
-<h4 id="phone-registration">Phone Registration</h4>
+<h4 id="phone-registration">PHONE REGISTRATION</h4>
 <p>This document covers the IP Phone Registration Process with the Cisco Unified Communications Manager (CUCM). It covers both SCCP and SIP Phone Registration Process to help the beginners to understand the basics of IP Phone boot process better which will help in Configuration and Troubleshooting the Network related issues easily.</p>
 <p><br><br>
 <strong>SCCP</strong><br><br>
@@ -437,6 +439,8 @@ SIP Phones use a different set of steps to achieve the same goal. Steps 1 to 4 a
 - (13) The phone downloads the softkey configurations from TFTP. <br>
 - (14) The phone downloads custom ringtones (if any) from TFTP. <br></p>
 <p><img alt="" src="../../images/2022-10-09-20-51-21.png" /></p>
+<h4 id="utils-command">Utils Command</h4>
+<p><img alt="Reference" src="https://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cucm/cli_ref/12_5_1/cucm_b_cli-reference-guide-1251.html" /><br></p>
               
             </div>
           </div><footer>
