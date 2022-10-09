@@ -50,7 +50,13 @@
     <ul class="current">
                 <li class="toctree-l2 current"><a class="reference internal current" href="./">Week 1</a>
     <ul class="current">
-    <li class="toctree-l3"><a class="reference internal" href="#deneme">Deneme</a>
+    <li class="toctree-l3"><a class="reference internal" href="#network-services">Network Services</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#vlan-dot1q">Vlan Dot1q</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#dot1q">DOT1Q</a>
+    </li>
+        </ul>
     </li>
     </ul>
                 </li>
@@ -95,11 +101,37 @@
             <div class="section" itemprop="articleBody">
               
                 <h3 id="week-1-courses-notes">Week 1 Courses Notes</h3>
-<h4 id="deneme">Deneme</h4>
-<ul>
-<li>Bu bir deneme yazısıdır</li>
-</ul>
-<p><img alt="" src="../../images/2022-10-09-18-20-55.png" /></p>
+<h4 id="network-services">Network Services</h4>
+<h5 id="vlan-dot1q">Vlan Dot1q</h5>
+<p>Before the phone has its IP address, the phone determines which VLAN it should be in by means of the Cisco Discovery Protocol (CDP) negotiation that takes place between the phone and the switch. This negotiation allows the phone to send packets with 802.1q tags to the switch in a "voice VLAN" so that the voice data and all other data coming from the PC behind the phone are separated from each other at Layer 2. <strong>Voice VLANs are not required</strong> for the phones to operate, but they provide additional separation from other data on the network.</p>
+<p><img alt="" src="../../images/2022-10-09-18-30-27.png" /></p>
+<p>Third-party endpoints do not support Cisco Discovery Protocol (CDP) or 802.1Q VLAN ID tagging. To allow device discovery when third-party devices are involved, use the Link Layer Discovery Protocol (LLDP). <strong>LLDP for Media Endpoint Devices (LLDP-MED) is an extension to LLDP</strong> that enhances support for voice endpoints. LLDP-MED defines how a switch port transitions from LLDP to LLDP-MED if it detects an LLDP-MED-capable endpoint. Support for both LLDP and LLDP-MED on IP phones and LAN switches depends on the firmware and device models. To determine if LLDP-MED is supported on particular phone or switch models, check the specific product documentation, release notes, and bulletins.
+<br>
+<br>
+<strong>PS:</strong> CDP also uses for <strong>POE</strong>
+<br>
+Maximum Power Allocation (Cutoff Power) on a PoE Port
+When power policing is enabled, the switch determines the cutoff power on the PoE port in this order:</p>
+<ol>
+<li>
+<p>Manually when you set the user-defined power level that the switch budgets for the port by using the power inline consumption default wattage global or interface configuration command</p>
+</li>
+<li>
+<p>Manually when you set the user-defined power level that limits the power allowed on the port by using the power inline auto max max-wattage or the power inline static max max-wattage interface configuration command</p>
+</li>
+<li>
+<p>Automatically when the switch sets the power usage of the device by using CDP power negotiation or by the IEEE classification and LLDP power negotiation.</p>
+</li>
+</ol>
+<p>Use the first or second method in the previous list to manually configure the cutoff-power value by entering the power inline consumption default wattage or the power inline [ auto | static max ] max-wattage command. If you do not manually configure the cutoff-power value, the switch automatically determines the value by using CDP power negotiation. If the switch cannot determine the value by using one of these methods, it uses the default value of 15.4 W.</p>
+<p><img alt="" src="../../images/2022-10-09-18-32-10.png" /></p>
+<h5 id="dot1q">DOT1Q</h5>
+<p>IEEE 802.1Q, often referred to as Dot1q, is the networking standard that supports VLANs on an IEEE 802.3 Ethernet network. The standard defines a system of VLAN tagging for Ethernet frames and the accompanying procedures to be used by bridges and switches in handling such frames. The standard also contains provisions for a quality-of-service prioritization scheme commonly known as IEEE 802.1p.</p>
+<p><img alt="" src="../../images/2022-10-09-18-33-32.png" /></p>
+<p><strong>TPID</strong> ---&gt; A 16-bit field set to a value of 0x8100 in order to identify the frame as an IEEE 802.1Q-tagged frame.</p>
+<p><strong>Priority</strong> ---&gt; A 3-bit field which refers to the IEEE 802.1p class of service and maps to the frame priority level.</p>
+<p><strong>CFI</strong> ---&gt; However, since IEEE 802.3 (Ethernet) and IEEE 802.4 (Token Bus) send the bytes (octets) over the wire, left-to-right, with the least significant bit in each byte first, while IEEE 802.5 (Token Ring) and IEEE 802.6 (FDDI) send the bytes over the wire with the most significant bit first. <strong>CFI bit always set 0</strong> for ethernet.</p>
+<p><strong>VLAN-ID</strong> ---&gt; A 12-bit field specifying the VLAN to which the frame belongs. The values of 0 and 4095.</p>
               
             </div>
           </div><footer>
