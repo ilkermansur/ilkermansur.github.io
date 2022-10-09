@@ -60,6 +60,8 @@
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#ntp">NTP</a>
     </li>
+    <li class="toctree-l4"><a class="reference internal" href="#phone-registration">Phone Registration</a>
+    </li>
         </ul>
     </li>
     </ul>
@@ -206,6 +208,236 @@ Executing command with options:
 <p><img alt="" src="../../images/2022-10-09-20-34-42.png" /></p>
 <p><strong><em>For SIP Phones:</em></strong> It is mandatory that you configure Phone NTP References and assign them through the device pool. These references direct the SIP phone to an appropriate NTP server that can provide the network time. If a SIP phone cannot get its date/time from the provisioned “Phone NTP Reference” the phone receives this information when it registers with Unified Communications Manager.</p>
 <p><strong><em>For SCCP Phones:</em></strong> Phone NTP References are not required as SCCP phones obtain their network time from Unified Communications Manager directly through SCCP signaling.</p>
+<h4 id="phone-registration">Phone Registration</h4>
+<p>This document covers the IP Phone Registration Process with the Cisco Unified Communications Manager (CUCM). It covers both SCCP and SIP Phone Registration Process to help the beginners to understand the basics of IP Phone boot process better which will help in Configuration and Troubleshooting the Network related issues easily.</p>
+<p><br><br>
+<strong>SCCP</strong><br><br>
+- (1)SCCP phone obtains the Power (PoE or AC adapter).<br>
+- (2)The phone loads its locally stored firmware image. <br>
+- (3)The phone learns the Voice VLAN ID via CDP from the switch. <br>
+- (4)The phone uses DHCP to learn its IP address, subnet mask, default gateway and TFTP server address.<br>
+- (5)The phone contacts the TFTP server and requests its configuration file. Each phone has a customized configuration file named SEP<mac_address>.cnf.xml created by CUCM and uploaded to TFTP when the administrator creates or modifies the phone.<br>
+- (6)The phone registers with the primary CUCM server listed in its configuration file. CUCM then sends the softkey template to the phone using SCCP messages.<br><br></p>
+<p><img alt="" src="../../images/2022-10-09-20-44-48.png" /></p>
+<p><br>
+<br><strong>PS :</strong> You can pull configuration file with CMD from TFTP which is belong to CUCM.</p>
+<pre><code class="language-text">C:\Windows\system32&gt;tftp -i 142.100.64.11 get SEPhquserone.cnf.xml
+Transfer successful: 7235 bytes in 1 second(s), 7235 bytes/s
+</code></pre>
+<p>then you can read this file:<br></p>
+<pre><code class="language-text">C:\Windows\system32&gt;notepad SEPhquserone.cnf.xml
+</code></pre>
+<p><strong>File Content</strong></p>
+<p>```text
+<device  xsi:type="axl:XIPPhone" ctiid="13" uuid="{5a166317-0328-4007-9d2b-4ec7a92c79c7}">
+<fullConfig>true</fullConfig>
+<portalDefaultServer>142.100.64.11</portalDefaultServer>
+<deviceProtocol>SCCP</deviceProtocol>
+<sshUserId></sshUserId>
+<sshPassword></sshPassword>
+<ipAddressMode>0</ipAddressMode>
+<allowAutoConfig>true</allowAutoConfig>
+<dadEnable>true</dadEnable>
+<redirectEnable>false</redirectEnable>
+<echoMultiEnable>false</echoMultiEnable>
+<ipPreferenceModeControl>0</ipPreferenceModeControl>
+<ipMediaAddressFamilyPreference>0</ipMediaAddressFamilyPreference>
+<tzdata>
+<tzolsonversion>2018c</tzolsonversion>
+<tzupdater>tzupdater.jar</tzupdater>
+</tzdata>
+<mlppDomainId>000000</mlppDomainId>
+<mlppIndicationStatus>Off</mlppIndicationStatus>
+<preemption>Disabled</preemption>
+<executiveOverridePreemptable>false</executiveOverridePreemptable>
+<devicePool  uuid="{1b1b9eb6-7803-11d3-bdf0-00108302ead1}">
+<revertPriority>0</revertPriority>
+<name>Default</name>
+<dateTimeSetting  uuid="{9ec4850a-7748-11d3-bdf0-00108302ead1}">
+<name>CMLocal</name>
+<dateTemplate>M/D/Y</dateTemplate>
+<timeZone>Greenwich Standard Time</timeZone>
+<olsonTimeZone>Etc/GMT</olsonTimeZone>
+</dateTimeSetting>
+<callManagerGroup>
+<name>Default</name>
+<tftpDefault>true</tftpDefault>
+<members>
+<member  priority="0">
+<callManager>
+<name>142.100.64.11</name>
+<description>hqcucmpub</description>
+<ports>
+<ethernetPhonePort>2000</ethernetPhonePort>
+<sipPort>5060</sipPort>
+<securedSipPort>5061</securedSipPort>
+<sipOAuthPort>5090</sipOAuthPort>
+<sipMRAOAuthPort>5091</sipMRAOAuthPort>
+<mgcpPorts>
+<listen>2427</listen>
+<keepAlive>2428</keepAlive>
+</mgcpPorts>
+</ports>
+<processNodeName>142.100.64.11</processNodeName>
+</callManager>
+</member>
+</members>
+</callManagerGroup>
+<srstInfo  uuid="{cd241e11-4a58-4d3d-9661-f06c912a18a3}">
+<name>Disable</name>
+<srstOption>Disable</srstOption>
+<userModifiable>false</userModifiable>
+<ipAddr1></ipAddr1>
+<port1>2000</port1>
+<ipAddr2></ipAddr2>
+<port2>2000</port2>
+<ipAddr3></ipAddr3>
+<port3>2000</port3>
+<sipIpAddr1></sipIpAddr1>
+<sipPort1>5060</sipPort1>
+<sipIpV6Addr1></sipIpV6Addr1>
+<sipIpAddr2></sipIpAddr2>
+<sipPort2>5060</sipPort2>
+<sipIpAddr3></sipIpAddr3>
+<sipPort3>5060</sipPort3>
+<isSecure>false</isSecure>
+</srstInfo>
+<connectionMonitorDuration>120</connectionMonitorDuration>
+</devicePool>
+<MissedCallLoggingOption>10</MissedCallLoggingOption>
+<commonProfile>
+<phonePassword></phonePassword>
+<backgroundImageAccess>true</backgroundImageAccess>
+<callLogBlfEnabled>2</callLogBlfEnabled>
+</commonProfile>
+<loadInformation></loadInformation>
+<vendorConfig>
+<disableSpeaker>false</disableSpeaker><autoSelectLineEnable>0</autoSelectLineEnable><deviceType>30016</deviceType><ipDetectionURL></ipDetectionURL><ldapServers></ldapServers><rtpPortRangeFirst></rtpPortRangeFirst><rtpPortRangeLast></rtpPortRangeLast><settingsAccess>1</settingsAccess><verifySoftwareVersions>0</verifySoftwareVersions><videoCapability>0</videoCapability><webAccess>0</webAccess><rtcp>0</rtcp><moreKeyReversionTimer>5</moreKeyReversionTimer><autoCallSelect>1</autoCallSelect><g722CodecSupport>0</g722CodecSupport><recordingToneLocalVolume>100</recordingToneLocalVolume><recordingToneRemoteVolume>100</recordingToneRemoteVolume></vendorConfig>
+<versionStamp>1654087884-113ed3d4-7e8d-44af-9add-8d30b4ee5dc0</versionStamp>
+<userLocale>
+<name>English_United_States</name>
+<uid>1</uid>
+<langCode>en_US</langCode>
+<version>12.0.0.0(1)</version>
+<winCharSet>iso-8859-1</winCharSet>
+</userLocale>
+<networkLocale>United_States</networkLocale>
+<networkLocaleInfo>
+<name>United_States</name>
+<uid>64</uid>
+<version>12.0.0.0(1)</version>
+</networkLocaleInfo>
+<deviceSecurityMode>1</deviceSecurityMode>
+<sipOAuthMode>0</sipOAuthMode>
+<idleTimeout>0</idleTimeout>
+<authenticationURL>http://hqcucmpub:8080/ccmcip/authenticate.jsp</authenticationURL>
+<directoryURL>http://hqcucmpub:8080/ccmcip/xmldirectory.jsp</directoryURL>
+<idleURL></idleURL>
+<informationURL>http://hqcucmpub:8080/ccmcip/GetTelecasterHelpText.jsp</informationURL>
+<messagesURL></messagesURL>
+<proxyServerURL></proxyServerURL>
+<servicesURL>http://hqcucmpub:8080/ccmcip/getservicesmenu.jsp</servicesURL>
+<secureAuthenticationURL>https://hqcucmpub:8443/ccmcip/authenticate.jsp</secureAuthenticationURL>
+<secureDirectoryURL>https://hqcucmpub:8443/ccmcip/xmldirectory.jsp</secureDirectoryURL>
+<secureUDSUsersAccessURL>https://hqcucmpub:8443/cucm-uds/users</secureUDSUsersAccessURL>
+<secureIdleURL></secureIdleURL>
+<secureInformationURL>https://hqcucmpub:8443/ccmcip/GetTelecasterHelpText.jsp</secureInformationURL>
+<secureMessagesURL></secureMessagesURL>
+<secureServicesURL>https://hqcucmpub:8443/ccmcip/getservicesmenu.jsp</secureServicesURL>
+<dscpForSCCPPhoneConfig>96</dscpForSCCPPhoneConfig>
+<dscpForSCCPPhoneServices>0</dscpForSCCPPhoneServices>
+<dscpForCm2Dvce>96</dscpForCm2Dvce>
+<transportLayerProtocol>1</transportLayerProtocol>
+<dndCallAlert>5</dndCallAlert>
+<phonePersonalization>0</phonePersonalization>
+<rollover>0</rollover>
+<singleButtonBarge>0</singleButtonBarge>
+<joinAcrossLines>0</joinAcrossLines>
+<autoCallPickupEnable>false</autoCallPickupEnable>
+<blfAudibleAlertSettingOfIdleStation>0</blfAudibleAlertSettingOfIdleStation>
+<blfAudibleAlertSettingOfBusyStation>0</blfAudibleAlertSettingOfBusyStation>
+<capfAuthMode>0</capfAuthMode>
+<capfList>
+<capf>
+<phonePort>3804</phonePort>
+<processNodeName>142.100.64.11</processNodeName>
+</capf>
+</capfList>
+<certHash></certHash>
+<encrConfig>false</encrConfig>
+<advertiseG722Codec>1</advertiseG722Codec>
+<mobility>
+<handoffdn></handoffdn>
+<dtmfdn></dtmfdn>
+<ivrdn></ivrdn>
+<dtmfHoldCode><em>81</dtmfHoldCode>
+<dtmfExclusiveHoldCode></em>82</dtmfExclusiveHoldCode>
+<dtmfResumeCode><em>83</dtmfResumeCode>
+<dtmfTxfCode></em>84</dtmfTxfCode>
+<dtmfCnfCode>*85</dtmfCnfCode>
+</mobility>
+<TLSResumptionTimer>3600</TLSResumptionTimer>
+<userId></userId>
+<ownerId></ownerId>
+<phoneServices  useHTTPS="true">
+<provisioning>0</provisioning>
+<phoneService  type="1" category="0">
+<name>Missed Calls</name>
+<url>Application:Cisco/MissedCalls</url>
+<vendor></vendor>
+<version></version>
+</phoneService>
+<phoneService  type="2" category="0">
+<name>Voicemail</name>
+<url>Application:Cisco/Voicemail</url>
+<vendor></vendor>
+<version></version>
+</phoneService>
+<phoneService  type="1" category="0">
+<name>Received Calls</name>
+<url>Application:Cisco/ReceivedCalls</url>
+<vendor></vendor>
+<version></version>
+</phoneService>
+<phoneService  type="1" category="0">
+<name>Placed Calls</name>
+<url>Application:Cisco/PlacedCalls</url>
+<vendor></vendor>
+<version></version>
+</phoneService>
+<phoneService  type="1" category="0">
+<name>Personal Directory</name>
+<url>Application:Cisco/PersonalDirectory</url>
+<vendor></vendor>
+<version></version>
+</phoneService>
+<phoneService  type="1" category="0">
+<name>Corporate Directory</name>
+<url>Application:Cisco/CorporateDirectory</url>
+<vendor></vendor>
+<version></version>
+</phoneService>
+</phoneServices>
+<SSOSPServers>
+<SSOSPServer>142.100.64.11</SSOSPServer>
+<SSOSPServer>142.100.64.12</SSOSPServer>
+</SSOSPServers>
+</device>
+````</p>
+<p><br><br>
+<strong>SIP</strong><br><br>
+SIP Phones use a different set of steps to achieve the same goal. Steps 1 to 4 are the same as SCCP Phones, refer the steps as illustrated in the figure: SCCP Phone Boot Process .<br><br>
+- (5) The phone contacts the TFTP server and requests the Certificate Trust List file (only if the cluster is secured).<br>
+- (6) The phone contacts the TFTP server and requests its SEP<mac-address>.cnf.xml configuration file. <br>
+- (7) If the SIP Phone has not been provisioned before boot time, the SIP Phone downloads the default configuration XMLDefault.cnf.xml file from the TFTP server.<br>
+- (8) The SIP phone requests a firmware upgrade (Load ID file), if one was specified in the configuration file. This process allows the phone to upgrade the firmware image automatically when required for a new version of CUCM. <br>
+- (9) The phone downloads the SIP dial rules configured for that phone. <br>
+- (10) The phone Establish connection with the primary CUCM and the TFTP server end to end. <br>
+- (11) The phone Registers with the primary CUCM server listed in its configuration file. <br>
+- (12) The phone downloads the appropriate localization files from TFTP. <br>
+- (13) The phone downloads the softkey configurations from TFTP. <br>
+- (14) The phone downloads custom ringtones (if any) from TFTP. <br></p>
+<p><img alt="" src="../../images/2022-10-09-20-51-21.png" /></p>
               
             </div>
           </div><footer>
