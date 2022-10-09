@@ -56,6 +56,8 @@
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#dot1q">DOT1Q</a>
     </li>
+    <li class="toctree-l4"><a class="reference internal" href="#dhcp">DHCP</a>
+    </li>
         </ul>
     </li>
     </ul>
@@ -132,6 +134,29 @@ When power policing is enabled, the switch determines the cutoff power on the Po
 <p><strong>Priority</strong> ---&gt; A 3-bit field which refers to the IEEE 802.1p class of service and maps to the frame priority level.</p>
 <p><strong>CFI</strong> ---&gt; However, since IEEE 802.3 (Ethernet) and IEEE 802.4 (Token Bus) send the bytes (octets) over the wire, left-to-right, with the least significant bit in each byte first, while IEEE 802.5 (Token Ring) and IEEE 802.6 (FDDI) send the bytes over the wire with the most significant bit first. <strong>CFI bit always set 0</strong> for ethernet.</p>
 <p><strong>VLAN-ID</strong> ---&gt; A 12-bit field specifying the VLAN to which the frame belongs. The values of 0 and 4095.</p>
+<hr />
+<h5 id="dhcp">DHCP</h5>
+<p>DHCP is used by hosts on the network to obtain initial configuration information, including IP address,  subnet mask, default gateway, and TFTP server address. DHCP eases the administrative burden of manually configuring each host with an IP address and other configuration information.</p>
+<p>In the simplest configuration, where a single TFTP server is offering service to all deployed endpoints, 
+Option 150 is delivered as a single IP address pointing to the system's designated TFTP server. The 
+DHCP scope can also deliver two IP addresses under Option 150, for deployments where there are two 
+TFTP servers within the same cluster. The phone would use the second address if it fails to contact the 
+primary TFTP server, thus providing redundancy. To achieve both redundancy and load sharing between 
+the TFTP servers, you can configure Option 150 to provide the two TFTP server addresses in reverse 
+order for half of the DHCP scopes.</p>
+<p><img alt="" src="../../images/2022-10-09-18-39-08.png" /></p>
+<p><strong>PS:</strong> Even though IP phones support a maximum of two TFTP servers under Option 150, you could configure 
+a Unified CM cluster with more than two TFTP servers.</p>
+<p><strong>PS:</strong> If a phone is powered down and comes back up while the DHCP server is still offline, it will attempt to 
+use DHCP to obtain IP addressing information (as normal). In the absence of a response from a DHCP 
+server, the phone will re-use the <strong>previously received DHCP</strong> information to register with Unified CM.</p>
+<p><strong>DHCP Configuration sample on Cisco IOS platform</strong></p>
+<pre><code>ip dhcp pool &lt;dhcp-pool name&gt;
+ network &lt;ip-subnet&gt; &lt;mask&gt; 
+ default-router &lt;default-gateway-ip&gt; 
+ option 150 ip &lt;tftp-server-ip-1&gt; &lt;tftp-server-ip-2&gt;
+</code></pre>
+<p><strong>PS:</strong> Cisco ip phone just use first two <em>TFTP</em> address.</p>
               
             </div>
           </div><footer>
