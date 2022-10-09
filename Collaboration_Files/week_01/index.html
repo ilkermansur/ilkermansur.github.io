@@ -56,6 +56,8 @@
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#dhcp">DHCP</a>
     </li>
+    <li class="toctree-l4"><a class="reference internal" href="#tftp">TFTP</a>
+    </li>
         </ul>
     </li>
     </ul>
@@ -119,8 +121,12 @@ There is a possibility that information could be gathered from the CDP messaging
 <p>Third-party endpoints do not support Cisco Discovery Protocol (CDP) or 802.1Q VLAN ID tagging. To allow device discovery when third-party devices are involved, use the Link Layer Discovery Protocol (LLDP). LLDP for Media Endpoint Devices (LLDP-MED) is an extension to LLDP that enhances support for voice endpoints. LLDP-MED defines how a switch port transitions from LLDP to LLDP-MED if it detects an LLDP-MED-capable endpoint. Support for both LLDP and LLDP-MED on IP phones and LAN switches depends on the firmware and device models. To determine if LLDP-MED is supported on particular phone or switch models, check the specific product documentation, release notes, and bulletins.<br></p>
 <p><img alt="" src="../../images/2022-10-09-19-54-15.png" /></p>
 <h4 id="dhcp">DHCP</h4>
-<p>When VLAN discovery is complete, the endpoint will send a DHCP discovery message to the DHCP server. Typically, the DHCP server is a router or windows/linux platform, but the Cisco Unified Communications Manager, as well as other DHCP server types, can also fulfill this role. A limitation in using the Cisco Unified Communications Manager is that it allows support for only up to 1000 devices. However, in either case, an option is made available for the TFTP server address to be discovered at the same time. This option is called <code>Option 150</code>. When the DHCP server receives the <code>DHCP discovery</code>, it responds with a <code>DHCP offer</code>. The DHCP offer includes an IP address, subnet mask, and default gateway address at a minimum. Additionally, a TFTP server address (with use of Option 150) and possibly one or more DNS addresses can also be provided. The end point responds to the DHCP offer with a <code>DHCP request</code> for the specific information sent in the DHCP offer. The DHCP server will then send a <code>DHCP acknowledgment</code> authorizing the use of the DHCP information exchanged and end the DHCP session.</p>
+<p>When VLAN discovery is complete, the endpoint will send a DHCP discovery message to the DHCP server. Typically, the DHCP server is a router or windows/linux platform, but the Cisco Unified Communications Manager, as well as other DHCP server types, can also fulfill this role. A limitation in using the Cisco Unified Communications Manager is that it allows support for only up to 1000 devices. However, in either case, an option is made available for the TFTP server address to be discovered at the same time. This option is called <code>Option 150</code>. When the DHCP server receives the <code>DHCP discovery</code>, it responds with a <code>DHCP offer</code>. The DHCP offer includes an IP address, subnet mask, and default gateway address at a minimum. Additionally, a TFTP server address (with use of Option 150) and possibly one or more DNS addresses can also be provided. The end point responds to the DHCP offer with a <code>DHCP request</code> for the specific information sent in the DHCP offer. The DHCP server will then send a <code>DHCP acknowledgment</code> authorizing the use of the DHCP information exchanged and end the DHCP session.<br></p>
 <p><img alt="" src="../../images/2022-10-09-19-56-21.png" /></p>
+<h4 id="tftp">TFTP</h4>
+<p>Now that the endpoint has appropriate IP address information and the TFTP server address, it can send a <code>TFTP Get</code> message to the TFTP server. This message is typically sent over HTTP when using current endpoints, but TFTP signaling could be used as well. The communication that the endpoints sent to the TFTP server contains their MAC addresses because that is what the Cisco Unified Communications Manager uses to identify the endpoint’s configuration file.<br></p>
+<p>Within a Cisco Unified CM system, endpoints such as IP phones rely on a TFTP-based process to acquire configuration files, software images, and other endpoint-specific information. The Cisco TFTP service is a file serving system that can run on one or more Unified CM servers.<br></p>
+<p><img alt="" src="../../images/2022-10-09-20-18-33.png" /></p>
               
             </div>
           </div><footer>
