@@ -67,6 +67,10 @@
         </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#qos">QoS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#qos-tools">QoS Tools</a>
+    </li>
+        </ul>
     </li>
     </ul>
                 </li>
@@ -557,6 +561,24 @@ utils network traceroute
 <hr />
 <p><strong>LAB-01 :</strong> Capture file from BB router and analyse COS and DSCP fields in header.</p>
 <hr />
+<h4 id="qos-tools">QoS Tools</h4>
+<ul>
+<li>Classification &amp; Marking</li>
+<li>Policing &amp; Shaping</li>
+<li>Congestion Management</li>
+<li>Congestion Avoidance</li>
+</ul>
+<hr />
+<h5 id="classification-marking">Classification &amp; Marking</h5>
+<ul>
+<li>Header Inspection : There are quite some fields in our headers that we can use to classify applications. For example, telnet uses TCP port 23 and HTTP uses TCP port 80. Using header inspection you can look for: </li>
+</ul>
+<p>Layer 2: MAC addresses<br>
+ Layer 3: source and destination IP addresses<br>
+ Layer 4: source and destination port numbers and protocol</p>
+<ul>
+<li>Payload Inspection : Payload inspection is more reliable as it will do deep packet inspection. Instead of just looking at layer 2/3/4 information the router will look at the contents of the payload and will recognize the application. On Cisco IOS routers this is done with NBAR (Network-Based Application Recognition). </li>
+</ul>
               
             </div>
           </div><footer>
