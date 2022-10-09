@@ -604,6 +604,25 @@ utils network capture eth0 file rogue size 300000 src a.b.c.d
 <hr />
 <p><strong>QoS-LAB-02 :</strong> Write a policy on BB router with two way (Header and Payload inspection ) respectivly for matching telnet traffic and try telnet from Cube-1 to BB router. Copy running config for each scenario.</p>
 <hr />
+<h5 id="policing-and-shaping-tools">Policing and Shaping Tools</h5>
+<p><img alt="" src="../../images/2022-10-09-23-16-29.png" /></p>
+<p><strong>Policer :</strong> Checks for traffic violations against a configured rate. Does not delay packets, takes immediate action to drop or remark packet if exceeding rate.</p>
+<p><strong>Characteristics of a policer :</strong></p>
+<ul>
+<li>Causes TCP resends when traffic is dropped</li>
+<li>Inflexible and inadaptable;makes instantaneous packet drop decisions</li>
+<li>An ingress or egress interface tool</li>
+<li>Does not add any delay or jitter to packets</li>
+<li>Rate limiting without buffering</li>
+</ul>
+<p><strong>Shaper :</strong> Traffic smoothing tool with the objective to buffer packets instead of dropping them, smoothing out any peaks of traffic arrival to not exceed configured rate.</p>
+<ul>
+<li>Typically delays rather than drops exceeding traffic, causes fewer TCP resends</li>
+<li>Adapts to congestion by buffering exceeding traffic</li>
+<li>Typically an egress interface tool</li>
+<li>Adds delay and jitter if rate exceeds the shaper</li>
+<li>Rate limiting with buffering</li>
+</ul>
               
             </div>
           </div><footer>
