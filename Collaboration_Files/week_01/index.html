@@ -440,7 +440,57 @@ SIP Phones use a different set of steps to achieve the same goal. Steps 1 to 4 a
 - (14) The phone downloads custom ringtones (if any) from TFTP. <br></p>
 <p><img alt="" src="../../images/2022-10-09-20-51-21.png" /></p>
 <h4 id="utils-command">Utils Command</h4>
-<p><img alt="Reference" src="https://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cucm/cli_ref/12_5_1/cucm_b_cli-reference-guide-1251.html" /><br></p>
+<p><a href="https://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cucm/cli_ref/12_5_1/cucm_b_cli-reference-guide-1251.html">Reference</a><br></p>
+<p><strong><em>Some Useful "UTILS" Commands :</em></strong>
+<br>
+<br></p>
+<pre><code class="language-text">utils dbreplications runtimestate
+</code></pre>
+<p>This command monitors progress of the database replication process and provides replication state in the cluster.
+<br></p>
+<pre><code class="language-text">utils network ping
+ ```
+This command test network reachability
+&lt;br&gt;
+
+```text
+utils network traceroute
+</code></pre>
+<p>This command traces IP packets that are sent to a remote destination.
+<br></p>
+<pre><code class="language-text">utils ntp restart/status/config
+</code></pre>
+<p>This command (utils ntp) have some subcommands which is about NTP Process.
+<br></p>
+<pre><code class="language-text">utils service list
+</code></pre>
+<p>This command retrieves a list of all services.
+<br></p>
+<pre><code class="language-text">utils service stop/start abcd
+</code></pre>
+<p>This command starts/stops abcd service.
+<br></p>
+<pre><code class="language-text">utils network captures eth0
+</code></pre>
+<p>This command captures IP packets on the specified Ethernet interface.
+<br>
+<br>
+<strong>Example:</strong> 
+<br>
+<br>
+ <code>text
+ utils network capture eth0 port 123</code>
+ for network time protocol (ntp)
+<br></p>
+<pre><code class="language-text">utils network capture eth0 file rogue size 300000 src a.b.c.d
+</code></pre>
+<p>This command dumps to a file (platform/cli/rogue.cap) all traffic received on interface eth0 from the network device having the IPv4 address of a.b.c.d.  The file size will be limited to 300,000 bytes.
+<br></p>
+<pre><code class="language-text">utils network capture eth0 port 5060 host ip a.b.c.d
+</code></pre>
+<p>This command dumps to the screen all SIP (UDP port 5060) traffic seen between the interface eth0 on the Unified Communications server and the device using IP address a.b.c.d.  In this case, the IP address provided could be that of a SIP phone.
+<br>
+<br></p>
               
             </div>
           </div><footer>
