@@ -60,8 +60,6 @@
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#ntp">NTP</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#purpose-of-the-ntp">Purpose of the NTP</a>
-    </li>
         </ul>
     </li>
     </ul>
@@ -159,7 +157,6 @@ admin:
 <p><strong>An Example of TFTP in Operation :</strong></p>
 <p>Every time an endpoint reboots, the endpoint will request a configuration file (via TFTP) whose name is based on the requesting endpoint's MAC address. (For a Cisco Unified IP Phone 7961 with MAC address ABCDEF123456, the file name would be <code>SEPABCDEF123456.cnf.xml</code>) The received configuration file includes the version of software that the phone must run and a list of Cisco Unified CM servers with which the phone should register. The endpoint might also download, via TFTP, ringer files, softkey templates, and other miscellaneous files to acquire the necessary configuration information before becoming operational.</p>
 <h4 id="ntp">NTP</h4>
-<h4 id="purpose-of-the-ntp">Purpose of the NTP</h4>
 <p>The purpose of the NTP with CUCM is to ensure that the servers are aware of the correct time. The time in the CUCM servers is important because Voice Over Internet Protocol (VOIP) are extremely sensitive to time variations. The CUCM cluster must maintain a time synchronization that remains close to the other servers in the cluster, this is due to <strong><em>database replication</em></strong> requirements.
 <br>
 Lastly, time is important for troubleshooting as you want to have the <strong><em>correct timestamps</em></strong>  in the logs.</p>
