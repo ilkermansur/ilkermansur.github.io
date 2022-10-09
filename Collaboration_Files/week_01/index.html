@@ -54,6 +54,8 @@
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#vlan-dot1q">Vlan Dot1q</a>
     </li>
+    <li class="toctree-l4"><a class="reference internal" href="#dhcp">DHCP</a>
+    </li>
         </ul>
     </li>
     </ul>
@@ -107,15 +109,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h3 id="week-1-courses-notes">Week 1 Courses Notes</h3>
-<h4 id="network-services">Network Services</h4>
-<h5 id="vlan-dot1q">Vlan Dot1q</h5>
+                <h2 id="week-1-courses-notes">Week 1 Courses Notes</h2>
+<h3 id="network-services">Network Services</h3>
+<h4 id="vlan-dot1q">Vlan Dot1q</h4>
 <p>Before the phone has its IP address, the phone determines which VLAN it should be in by means of the Cisco Discovery Protocol (CDP) negotiation that takes place between the phone and the switch. This negotiation allows the phone to send packets with 802.1q tags to the switch in a <strong>voice VLAN</strong> so that the voice data and all other data coming from the PC behind the phone are separated from each other at Layer 2. Voice VLANs are not required for the phones to operate, but they provide additional separation from other data on the network.
 Voice VLANs can be assigned automatically from the switch to the phone, thus allowing for Layer 2 and Layer 3 separations between voice data and all other data on a network. A voice VLAN also allows for a different IP addressing scheme because the separate VLAN can have a separate IP scope at the Dynamic Host Configuration Protocol (DHCP) server.<br>
 Applications use CDP messaging from the phones to assist in locating phones during an emergency call. The location of the phone will be much more difficult to determine if CDP is not enabled on the access port to which that phone is attached.<br>
 There is a possibility that information could be gathered from the CDP messaging that would normally go to the phone, and that information could be used to discover some of the network. Not all devices that can be used for voice or video with Unified CM are able to use CDP to assist in discovering the voice VLAN.<br></p>
 <p>Third-party endpoints do not support Cisco Discovery Protocol (CDP) or 802.1Q VLAN ID tagging. To allow device discovery when third-party devices are involved, use the Link Layer Discovery Protocol (LLDP). LLDP for Media Endpoint Devices (LLDP-MED) is an extension to LLDP that enhances support for voice endpoints. LLDP-MED defines how a switch port transitions from LLDP to LLDP-MED if it detects an LLDP-MED-capable endpoint. Support for both LLDP and LLDP-MED on IP phones and LAN switches depends on the firmware and device models. To determine if LLDP-MED is supported on particular phone or switch models, check the specific product documentation, release notes, and bulletins.<br></p>
-<p><img alt="" src="../../images/2022-10-09-19-31-26.png" /></p>
+<p><img alt="" src="../../images/2022-10-09-19-54-15.png" /></p>
+<h4 id="dhcp">DHCP</h4>
+<p>When VLAN discovery is complete, the endpoint will send a DHCP discovery message to the DHCP server. Typically, the DHCP server is a router or windows/linux platform, but the Cisco Unified Communications Manager, as well as other DHCP server types, can also fulfill this role. A limitation in using the Cisco Unified Communications Manager is that it allows support for only up to 1000 devices. However, in either case, an option is made available for the TFTP server address to be discovered at the same time. This option is called <code>Option 150</code>. When the DHCP server receives the <code>DHCP discovery</code>, it responds with a <code>DHCP offer</code>. The DHCP offer includes an IP address, subnet mask, and default gateway address at a minimum. Additionally, a TFTP server address (with use of Option 150) and possibly one or more DNS addresses can also be provided. The end point responds to the DHCP offer with a <code>DHCP request</code> for the specific information sent in the DHCP offer. The DHCP server will then send a <code>DHCP acknowledgment</code> authorizing the use of the DHCP information exchanged and end the DHCP session.</p>
+<p><img alt="" src="../../images/2022-10-09-19-56-21.png" /></p>
               
             </div>
           </div><footer>
