@@ -445,6 +445,9 @@ SIP Phones use a different set of steps to achieve the same goal. Steps 1 to 4 a
 - (13) The phone downloads the softkey configurations from TFTP. <br>
 - (14) The phone downloads custom ringtones (if any) from TFTP. <br></p>
 <p><img alt="" src="../../images/2022-10-09-20-51-21.png" /></p>
+<hr />
+<p><strong>NET-LAB-01 :</strong> Register endpoint to CUCM with using SSCP and SIP respectively and capture from user site.</p>
+<hr />
 <h4 id="utils-command">Utils Command</h4>
 <p><a href="https://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cucm/cli_ref/12_5_1/cucm_b_cli-reference-guide-1251.html">Reference</a><br></p>
 <p><strong>Some Useful "UTILS" Commands :</strong>
@@ -559,7 +562,7 @@ utils network traceroute
 </ul>
 <p><img alt="" src="../../images/2022-10-09-21-38-52.png" /></p>
 <hr />
-<p><strong>LAB-01 :</strong> Capture file from BB router and analyse COS and DSCP fields in header.</p>
+<p><strong>QoS-LAB-01 :</strong> Capture file from BB router and analyse COS and DSCP fields in header.</p>
 <hr />
 <h4 id="qos-tools">QoS Tools</h4>
 <ul>
@@ -579,6 +582,9 @@ utils network traceroute
 <ul>
 <li>Payload Inspection : Payload inspection is more reliable as it will do deep packet inspection. Instead of just looking at layer 2/3/4 information the router will look at the contents of the payload and will recognize the application. On Cisco IOS routers this is done with NBAR (Network-Based Application Recognition). </li>
 </ul>
+<hr />
+<p><strong>QoS-LAB-02 :</strong> Write a policy on BB router with two way (Header and Payload inspection ) respectivly for matching telnet traffic and try telnet from Cube-1 to BB router. Copy running config for each scenario.</p>
+<hr />
               
             </div>
           </div><footer>
