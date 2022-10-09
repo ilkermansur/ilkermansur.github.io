@@ -228,202 +228,201 @@ Transfer successful: 7235 bytes in 1 second(s), 7235 bytes/s
 <pre><code class="language-text">C:\Windows\system32&gt;notepad SEPhquserone.cnf.xml
 </code></pre>
 <p><strong>File Content</strong></p>
-<p>```text
-<device  xsi:type="axl:XIPPhone" ctiid="13" uuid="{5a166317-0328-4007-9d2b-4ec7a92c79c7}">
-<fullConfig>true</fullConfig>
-<portalDefaultServer>142.100.64.11</portalDefaultServer>
-<deviceProtocol>SCCP</deviceProtocol>
-<sshUserId></sshUserId>
-<sshPassword></sshPassword>
-<ipAddressMode>0</ipAddressMode>
-<allowAutoConfig>true</allowAutoConfig>
-<dadEnable>true</dadEnable>
-<redirectEnable>false</redirectEnable>
-<echoMultiEnable>false</echoMultiEnable>
-<ipPreferenceModeControl>0</ipPreferenceModeControl>
-<ipMediaAddressFamilyPreference>0</ipMediaAddressFamilyPreference>
-<tzdata>
-<tzolsonversion>2018c</tzolsonversion>
-<tzupdater>tzupdater.jar</tzupdater>
-</tzdata>
-<mlppDomainId>000000</mlppDomainId>
-<mlppIndicationStatus>Off</mlppIndicationStatus>
-<preemption>Disabled</preemption>
-<executiveOverridePreemptable>false</executiveOverridePreemptable>
-<devicePool  uuid="{1b1b9eb6-7803-11d3-bdf0-00108302ead1}">
-<revertPriority>0</revertPriority>
-<name>Default</name>
-<dateTimeSetting  uuid="{9ec4850a-7748-11d3-bdf0-00108302ead1}">
-<name>CMLocal</name>
-<dateTemplate>M/D/Y</dateTemplate>
-<timeZone>Greenwich Standard Time</timeZone>
-<olsonTimeZone>Etc/GMT</olsonTimeZone>
-</dateTimeSetting>
-<callManagerGroup>
-<name>Default</name>
-<tftpDefault>true</tftpDefault>
-<members>
-<member  priority="0">
-<callManager>
-<name>142.100.64.11</name>
-<description>hqcucmpub</description>
-<ports>
-<ethernetPhonePort>2000</ethernetPhonePort>
-<sipPort>5060</sipPort>
-<securedSipPort>5061</securedSipPort>
-<sipOAuthPort>5090</sipOAuthPort>
-<sipMRAOAuthPort>5091</sipMRAOAuthPort>
-<mgcpPorts>
-<listen>2427</listen>
-<keepAlive>2428</keepAlive>
-</mgcpPorts>
-</ports>
-<processNodeName>142.100.64.11</processNodeName>
-</callManager>
-</member>
-</members>
-</callManagerGroup>
-<srstInfo  uuid="{cd241e11-4a58-4d3d-9661-f06c912a18a3}">
-<name>Disable</name>
-<srstOption>Disable</srstOption>
-<userModifiable>false</userModifiable>
-<ipAddr1></ipAddr1>
-<port1>2000</port1>
-<ipAddr2></ipAddr2>
-<port2>2000</port2>
-<ipAddr3></ipAddr3>
-<port3>2000</port3>
-<sipIpAddr1></sipIpAddr1>
-<sipPort1>5060</sipPort1>
-<sipIpV6Addr1></sipIpV6Addr1>
-<sipIpAddr2></sipIpAddr2>
-<sipPort2>5060</sipPort2>
-<sipIpAddr3></sipIpAddr3>
-<sipPort3>5060</sipPort3>
-<isSecure>false</isSecure>
-</srstInfo>
-<connectionMonitorDuration>120</connectionMonitorDuration>
-</devicePool>
-<MissedCallLoggingOption>10</MissedCallLoggingOption>
-<commonProfile>
-<phonePassword></phonePassword>
-<backgroundImageAccess>true</backgroundImageAccess>
-<callLogBlfEnabled>2</callLogBlfEnabled>
-</commonProfile>
-<loadInformation></loadInformation>
-<vendorConfig>
-<disableSpeaker>false</disableSpeaker><autoSelectLineEnable>0</autoSelectLineEnable><deviceType>30016</deviceType><ipDetectionURL></ipDetectionURL><ldapServers></ldapServers><rtpPortRangeFirst></rtpPortRangeFirst><rtpPortRangeLast></rtpPortRangeLast><settingsAccess>1</settingsAccess><verifySoftwareVersions>0</verifySoftwareVersions><videoCapability>0</videoCapability><webAccess>0</webAccess><rtcp>0</rtcp><moreKeyReversionTimer>5</moreKeyReversionTimer><autoCallSelect>1</autoCallSelect><g722CodecSupport>0</g722CodecSupport><recordingToneLocalVolume>100</recordingToneLocalVolume><recordingToneRemoteVolume>100</recordingToneRemoteVolume></vendorConfig>
-<versionStamp>1654087884-113ed3d4-7e8d-44af-9add-8d30b4ee5dc0</versionStamp>
-<userLocale>
-<name>English_United_States</name>
-<uid>1</uid>
-<langCode>en_US</langCode>
-<version>12.0.0.0(1)</version>
-<winCharSet>iso-8859-1</winCharSet>
-</userLocale>
-<networkLocale>United_States</networkLocale>
-<networkLocaleInfo>
-<name>United_States</name>
-<uid>64</uid>
-<version>12.0.0.0(1)</version>
-</networkLocaleInfo>
-<deviceSecurityMode>1</deviceSecurityMode>
-<sipOAuthMode>0</sipOAuthMode>
-<idleTimeout>0</idleTimeout>
-<authenticationURL>http://hqcucmpub:8080/ccmcip/authenticate.jsp</authenticationURL>
-<directoryURL>http://hqcucmpub:8080/ccmcip/xmldirectory.jsp</directoryURL>
-<idleURL></idleURL>
-<informationURL>http://hqcucmpub:8080/ccmcip/GetTelecasterHelpText.jsp</informationURL>
-<messagesURL></messagesURL>
-<proxyServerURL></proxyServerURL>
-<servicesURL>http://hqcucmpub:8080/ccmcip/getservicesmenu.jsp</servicesURL>
-<secureAuthenticationURL>https://hqcucmpub:8443/ccmcip/authenticate.jsp</secureAuthenticationURL>
-<secureDirectoryURL>https://hqcucmpub:8443/ccmcip/xmldirectory.jsp</secureDirectoryURL>
-<secureUDSUsersAccessURL>https://hqcucmpub:8443/cucm-uds/users</secureUDSUsersAccessURL>
-<secureIdleURL></secureIdleURL>
-<secureInformationURL>https://hqcucmpub:8443/ccmcip/GetTelecasterHelpText.jsp</secureInformationURL>
-<secureMessagesURL></secureMessagesURL>
-<secureServicesURL>https://hqcucmpub:8443/ccmcip/getservicesmenu.jsp</secureServicesURL>
-<dscpForSCCPPhoneConfig>96</dscpForSCCPPhoneConfig>
-<dscpForSCCPPhoneServices>0</dscpForSCCPPhoneServices>
-<dscpForCm2Dvce>96</dscpForCm2Dvce>
-<transportLayerProtocol>1</transportLayerProtocol>
-<dndCallAlert>5</dndCallAlert>
-<phonePersonalization>0</phonePersonalization>
-<rollover>0</rollover>
-<singleButtonBarge>0</singleButtonBarge>
-<joinAcrossLines>0</joinAcrossLines>
-<autoCallPickupEnable>false</autoCallPickupEnable>
-<blfAudibleAlertSettingOfIdleStation>0</blfAudibleAlertSettingOfIdleStation>
-<blfAudibleAlertSettingOfBusyStation>0</blfAudibleAlertSettingOfBusyStation>
-<capfAuthMode>0</capfAuthMode>
-<capfList>
-<capf>
-<phonePort>3804</phonePort>
-<processNodeName>142.100.64.11</processNodeName>
-</capf>
-</capfList>
-<certHash></certHash>
-<encrConfig>false</encrConfig>
-<advertiseG722Codec>1</advertiseG722Codec>
-<mobility>
-<handoffdn></handoffdn>
-<dtmfdn></dtmfdn>
-<ivrdn></ivrdn>
-<dtmfHoldCode><em>81</dtmfHoldCode>
-<dtmfExclusiveHoldCode></em>82</dtmfExclusiveHoldCode>
-<dtmfResumeCode><em>83</dtmfResumeCode>
-<dtmfTxfCode></em>84</dtmfTxfCode>
-<dtmfCnfCode>*85</dtmfCnfCode>
-</mobility>
-<TLSResumptionTimer>3600</TLSResumptionTimer>
-<userId></userId>
-<ownerId></ownerId>
-<phoneServices  useHTTPS="true">
-<provisioning>0</provisioning>
-<phoneService  type="1" category="0">
-<name>Missed Calls</name>
-<url>Application:Cisco/MissedCalls</url>
-<vendor></vendor>
-<version></version>
-</phoneService>
-<phoneService  type="2" category="0">
-<name>Voicemail</name>
-<url>Application:Cisco/Voicemail</url>
-<vendor></vendor>
-<version></version>
-</phoneService>
-<phoneService  type="1" category="0">
-<name>Received Calls</name>
-<url>Application:Cisco/ReceivedCalls</url>
-<vendor></vendor>
-<version></version>
-</phoneService>
-<phoneService  type="1" category="0">
-<name>Placed Calls</name>
-<url>Application:Cisco/PlacedCalls</url>
-<vendor></vendor>
-<version></version>
-</phoneService>
-<phoneService  type="1" category="0">
-<name>Personal Directory</name>
-<url>Application:Cisco/PersonalDirectory</url>
-<vendor></vendor>
-<version></version>
-</phoneService>
-<phoneService  type="1" category="0">
-<name>Corporate Directory</name>
-<url>Application:Cisco/CorporateDirectory</url>
-<vendor></vendor>
-<version></version>
-</phoneService>
-</phoneServices>
-<SSOSPServers>
-<SSOSPServer>142.100.64.11</SSOSPServer>
-<SSOSPServer>142.100.64.12</SSOSPServer>
-</SSOSPServers>
-</device>
-````</p>
+<pre><code class="language-text">&lt;device  xsi:type=&quot;axl:XIPPhone&quot; ctiid=&quot;13&quot; uuid=&quot;{5a166317-0328-4007-9d2b-4ec7a92c79c7}&quot;&gt;
+&lt;fullConfig&gt;true&lt;/fullConfig&gt;
+&lt;portalDefaultServer&gt;142.100.64.11&lt;/portalDefaultServer&gt;
+&lt;deviceProtocol&gt;SCCP&lt;/deviceProtocol&gt;
+&lt;sshUserId&gt;&lt;/sshUserId&gt;
+&lt;sshPassword&gt;&lt;/sshPassword&gt;
+&lt;ipAddressMode&gt;0&lt;/ipAddressMode&gt;
+&lt;allowAutoConfig&gt;true&lt;/allowAutoConfig&gt;
+&lt;dadEnable&gt;true&lt;/dadEnable&gt;
+&lt;redirectEnable&gt;false&lt;/redirectEnable&gt;
+&lt;echoMultiEnable&gt;false&lt;/echoMultiEnable&gt;
+&lt;ipPreferenceModeControl&gt;0&lt;/ipPreferenceModeControl&gt;
+&lt;ipMediaAddressFamilyPreference&gt;0&lt;/ipMediaAddressFamilyPreference&gt;
+&lt;tzdata&gt;
+&lt;tzolsonversion&gt;2018c&lt;/tzolsonversion&gt;
+&lt;tzupdater&gt;tzupdater.jar&lt;/tzupdater&gt;
+&lt;/tzdata&gt;
+&lt;mlppDomainId&gt;000000&lt;/mlppDomainId&gt;
+&lt;mlppIndicationStatus&gt;Off&lt;/mlppIndicationStatus&gt;
+&lt;preemption&gt;Disabled&lt;/preemption&gt;
+&lt;executiveOverridePreemptable&gt;false&lt;/executiveOverridePreemptable&gt;
+&lt;devicePool  uuid=&quot;{1b1b9eb6-7803-11d3-bdf0-00108302ead1}&quot;&gt;
+&lt;revertPriority&gt;0&lt;/revertPriority&gt;
+&lt;name&gt;Default&lt;/name&gt;
+&lt;dateTimeSetting  uuid=&quot;{9ec4850a-7748-11d3-bdf0-00108302ead1}&quot;&gt;
+&lt;name&gt;CMLocal&lt;/name&gt;
+&lt;dateTemplate&gt;M/D/Y&lt;/dateTemplate&gt;
+&lt;timeZone&gt;Greenwich Standard Time&lt;/timeZone&gt;
+&lt;olsonTimeZone&gt;Etc/GMT&lt;/olsonTimeZone&gt;
+&lt;/dateTimeSetting&gt;
+&lt;callManagerGroup&gt;
+&lt;name&gt;Default&lt;/name&gt;
+&lt;tftpDefault&gt;true&lt;/tftpDefault&gt;
+&lt;members&gt;
+&lt;member  priority=&quot;0&quot;&gt;
+&lt;callManager&gt;
+&lt;name&gt;142.100.64.11&lt;/name&gt;
+&lt;description&gt;hqcucmpub&lt;/description&gt;
+&lt;ports&gt;
+&lt;ethernetPhonePort&gt;2000&lt;/ethernetPhonePort&gt;
+&lt;sipPort&gt;5060&lt;/sipPort&gt;
+&lt;securedSipPort&gt;5061&lt;/securedSipPort&gt;
+&lt;sipOAuthPort&gt;5090&lt;/sipOAuthPort&gt;
+&lt;sipMRAOAuthPort&gt;5091&lt;/sipMRAOAuthPort&gt;
+&lt;mgcpPorts&gt;
+&lt;listen&gt;2427&lt;/listen&gt;
+&lt;keepAlive&gt;2428&lt;/keepAlive&gt;
+&lt;/mgcpPorts&gt;
+&lt;/ports&gt;
+&lt;processNodeName&gt;142.100.64.11&lt;/processNodeName&gt;
+&lt;/callManager&gt;
+&lt;/member&gt;
+&lt;/members&gt;
+&lt;/callManagerGroup&gt;
+&lt;srstInfo  uuid=&quot;{cd241e11-4a58-4d3d-9661-f06c912a18a3}&quot;&gt;
+&lt;name&gt;Disable&lt;/name&gt;
+&lt;srstOption&gt;Disable&lt;/srstOption&gt;
+&lt;userModifiable&gt;false&lt;/userModifiable&gt;
+&lt;ipAddr1&gt;&lt;/ipAddr1&gt;
+&lt;port1&gt;2000&lt;/port1&gt;
+&lt;ipAddr2&gt;&lt;/ipAddr2&gt;
+&lt;port2&gt;2000&lt;/port2&gt;
+&lt;ipAddr3&gt;&lt;/ipAddr3&gt;
+&lt;port3&gt;2000&lt;/port3&gt;
+&lt;sipIpAddr1&gt;&lt;/sipIpAddr1&gt;
+&lt;sipPort1&gt;5060&lt;/sipPort1&gt;
+&lt;sipIpV6Addr1&gt;&lt;/sipIpV6Addr1&gt;
+&lt;sipIpAddr2&gt;&lt;/sipIpAddr2&gt;
+&lt;sipPort2&gt;5060&lt;/sipPort2&gt;
+&lt;sipIpAddr3&gt;&lt;/sipIpAddr3&gt;
+&lt;sipPort3&gt;5060&lt;/sipPort3&gt;
+&lt;isSecure&gt;false&lt;/isSecure&gt;
+&lt;/srstInfo&gt;
+&lt;connectionMonitorDuration&gt;120&lt;/connectionMonitorDuration&gt;
+&lt;/devicePool&gt;
+&lt;MissedCallLoggingOption&gt;10&lt;/MissedCallLoggingOption&gt;
+&lt;commonProfile&gt;
+&lt;phonePassword&gt;&lt;/phonePassword&gt;
+&lt;backgroundImageAccess&gt;true&lt;/backgroundImageAccess&gt;
+&lt;callLogBlfEnabled&gt;2&lt;/callLogBlfEnabled&gt;
+&lt;/commonProfile&gt;
+&lt;loadInformation&gt;&lt;/loadInformation&gt;
+&lt;vendorConfig&gt;
+&lt;disableSpeaker&gt;false&lt;/disableSpeaker&gt;&lt;autoSelectLineEnable&gt;0&lt;/autoSelectLineEnable&gt;&lt;deviceType&gt;30016&lt;/deviceType&gt;&lt;ipDetectionURL&gt;&lt;/ipDetectionURL&gt;&lt;ldapServers&gt;&lt;/ldapServers&gt;&lt;rtpPortRangeFirst&gt;&lt;/rtpPortRangeFirst&gt;&lt;rtpPortRangeLast&gt;&lt;/rtpPortRangeLast&gt;&lt;settingsAccess&gt;1&lt;/settingsAccess&gt;&lt;verifySoftwareVersions&gt;0&lt;/verifySoftwareVersions&gt;&lt;videoCapability&gt;0&lt;/videoCapability&gt;&lt;webAccess&gt;0&lt;/webAccess&gt;&lt;rtcp&gt;0&lt;/rtcp&gt;&lt;moreKeyReversionTimer&gt;5&lt;/moreKeyReversionTimer&gt;&lt;autoCallSelect&gt;1&lt;/autoCallSelect&gt;&lt;g722CodecSupport&gt;0&lt;/g722CodecSupport&gt;&lt;recordingToneLocalVolume&gt;100&lt;/recordingToneLocalVolume&gt;&lt;recordingToneRemoteVolume&gt;100&lt;/recordingToneRemoteVolume&gt;&lt;/vendorConfig&gt;
+&lt;versionStamp&gt;1654087884-113ed3d4-7e8d-44af-9add-8d30b4ee5dc0&lt;/versionStamp&gt;
+&lt;userLocale&gt;
+&lt;name&gt;English_United_States&lt;/name&gt;
+&lt;uid&gt;1&lt;/uid&gt;
+&lt;langCode&gt;en_US&lt;/langCode&gt;
+&lt;version&gt;12.0.0.0(1)&lt;/version&gt;
+&lt;winCharSet&gt;iso-8859-1&lt;/winCharSet&gt;
+&lt;/userLocale&gt;
+&lt;networkLocale&gt;United_States&lt;/networkLocale&gt;
+&lt;networkLocaleInfo&gt;
+&lt;name&gt;United_States&lt;/name&gt;
+&lt;uid&gt;64&lt;/uid&gt;
+&lt;version&gt;12.0.0.0(1)&lt;/version&gt;
+&lt;/networkLocaleInfo&gt;
+&lt;deviceSecurityMode&gt;1&lt;/deviceSecurityMode&gt;
+&lt;sipOAuthMode&gt;0&lt;/sipOAuthMode&gt;
+&lt;idleTimeout&gt;0&lt;/idleTimeout&gt;
+&lt;authenticationURL&gt;http://hqcucmpub:8080/ccmcip/authenticate.jsp&lt;/authenticationURL&gt;
+&lt;directoryURL&gt;http://hqcucmpub:8080/ccmcip/xmldirectory.jsp&lt;/directoryURL&gt;
+&lt;idleURL&gt;&lt;/idleURL&gt;
+&lt;informationURL&gt;http://hqcucmpub:8080/ccmcip/GetTelecasterHelpText.jsp&lt;/informationURL&gt;
+&lt;messagesURL&gt;&lt;/messagesURL&gt;
+&lt;proxyServerURL&gt;&lt;/proxyServerURL&gt;
+&lt;servicesURL&gt;http://hqcucmpub:8080/ccmcip/getservicesmenu.jsp&lt;/servicesURL&gt;
+&lt;secureAuthenticationURL&gt;https://hqcucmpub:8443/ccmcip/authenticate.jsp&lt;/secureAuthenticationURL&gt;
+&lt;secureDirectoryURL&gt;https://hqcucmpub:8443/ccmcip/xmldirectory.jsp&lt;/secureDirectoryURL&gt;
+&lt;secureUDSUsersAccessURL&gt;https://hqcucmpub:8443/cucm-uds/users&lt;/secureUDSUsersAccessURL&gt;
+&lt;secureIdleURL&gt;&lt;/secureIdleURL&gt;
+&lt;secureInformationURL&gt;https://hqcucmpub:8443/ccmcip/GetTelecasterHelpText.jsp&lt;/secureInformationURL&gt;
+&lt;secureMessagesURL&gt;&lt;/secureMessagesURL&gt;
+&lt;secureServicesURL&gt;https://hqcucmpub:8443/ccmcip/getservicesmenu.jsp&lt;/secureServicesURL&gt;
+&lt;dscpForSCCPPhoneConfig&gt;96&lt;/dscpForSCCPPhoneConfig&gt;
+&lt;dscpForSCCPPhoneServices&gt;0&lt;/dscpForSCCPPhoneServices&gt;
+&lt;dscpForCm2Dvce&gt;96&lt;/dscpForCm2Dvce&gt;
+&lt;transportLayerProtocol&gt;1&lt;/transportLayerProtocol&gt;
+&lt;dndCallAlert&gt;5&lt;/dndCallAlert&gt;
+&lt;phonePersonalization&gt;0&lt;/phonePersonalization&gt;
+&lt;rollover&gt;0&lt;/rollover&gt;
+&lt;singleButtonBarge&gt;0&lt;/singleButtonBarge&gt;
+&lt;joinAcrossLines&gt;0&lt;/joinAcrossLines&gt;
+&lt;autoCallPickupEnable&gt;false&lt;/autoCallPickupEnable&gt;
+&lt;blfAudibleAlertSettingOfIdleStation&gt;0&lt;/blfAudibleAlertSettingOfIdleStation&gt;
+&lt;blfAudibleAlertSettingOfBusyStation&gt;0&lt;/blfAudibleAlertSettingOfBusyStation&gt;
+&lt;capfAuthMode&gt;0&lt;/capfAuthMode&gt;
+&lt;capfList&gt;
+&lt;capf&gt;
+&lt;phonePort&gt;3804&lt;/phonePort&gt;
+&lt;processNodeName&gt;142.100.64.11&lt;/processNodeName&gt;
+&lt;/capf&gt;
+&lt;/capfList&gt;
+&lt;certHash&gt;&lt;/certHash&gt;
+&lt;encrConfig&gt;false&lt;/encrConfig&gt;
+&lt;advertiseG722Codec&gt;1&lt;/advertiseG722Codec&gt;
+&lt;mobility&gt;
+&lt;handoffdn&gt;&lt;/handoffdn&gt;
+&lt;dtmfdn&gt;&lt;/dtmfdn&gt;
+&lt;ivrdn&gt;&lt;/ivrdn&gt;
+&lt;dtmfHoldCode&gt;*81&lt;/dtmfHoldCode&gt;
+&lt;dtmfExclusiveHoldCode&gt;*82&lt;/dtmfExclusiveHoldCode&gt;
+&lt;dtmfResumeCode&gt;*83&lt;/dtmfResumeCode&gt;
+&lt;dtmfTxfCode&gt;*84&lt;/dtmfTxfCode&gt;
+&lt;dtmfCnfCode&gt;*85&lt;/dtmfCnfCode&gt;
+&lt;/mobility&gt;
+&lt;TLSResumptionTimer&gt;3600&lt;/TLSResumptionTimer&gt;
+&lt;userId&gt;&lt;/userId&gt;
+&lt;ownerId&gt;&lt;/ownerId&gt;
+&lt;phoneServices  useHTTPS=&quot;true&quot;&gt;
+&lt;provisioning&gt;0&lt;/provisioning&gt;
+&lt;phoneService  type=&quot;1&quot; category=&quot;0&quot;&gt;
+&lt;name&gt;Missed Calls&lt;/name&gt;
+&lt;url&gt;Application:Cisco/MissedCalls&lt;/url&gt;
+&lt;vendor&gt;&lt;/vendor&gt;
+&lt;version&gt;&lt;/version&gt;
+&lt;/phoneService&gt;
+&lt;phoneService  type=&quot;2&quot; category=&quot;0&quot;&gt;
+&lt;name&gt;Voicemail&lt;/name&gt;
+&lt;url&gt;Application:Cisco/Voicemail&lt;/url&gt;
+&lt;vendor&gt;&lt;/vendor&gt;
+&lt;version&gt;&lt;/version&gt;
+&lt;/phoneService&gt;
+&lt;phoneService  type=&quot;1&quot; category=&quot;0&quot;&gt;
+&lt;name&gt;Received Calls&lt;/name&gt;
+&lt;url&gt;Application:Cisco/ReceivedCalls&lt;/url&gt;
+&lt;vendor&gt;&lt;/vendor&gt;
+&lt;version&gt;&lt;/version&gt;
+&lt;/phoneService&gt;
+&lt;phoneService  type=&quot;1&quot; category=&quot;0&quot;&gt;
+&lt;name&gt;Placed Calls&lt;/name&gt;
+&lt;url&gt;Application:Cisco/PlacedCalls&lt;/url&gt;
+&lt;vendor&gt;&lt;/vendor&gt;
+&lt;version&gt;&lt;/version&gt;
+&lt;/phoneService&gt;
+&lt;phoneService  type=&quot;1&quot; category=&quot;0&quot;&gt;
+&lt;name&gt;Personal Directory&lt;/name&gt;
+&lt;url&gt;Application:Cisco/PersonalDirectory&lt;/url&gt;
+&lt;vendor&gt;&lt;/vendor&gt;
+&lt;version&gt;&lt;/version&gt;
+&lt;/phoneService&gt;
+&lt;phoneService  type=&quot;1&quot; category=&quot;0&quot;&gt;
+&lt;name&gt;Corporate Directory&lt;/name&gt;
+&lt;url&gt;Application:Cisco/CorporateDirectory&lt;/url&gt;
+&lt;vendor&gt;&lt;/vendor&gt;
+&lt;version&gt;&lt;/version&gt;
+&lt;/phoneService&gt;
+&lt;/phoneServices&gt;
+&lt;SSOSPServers&gt;
+&lt;SSOSPServer&gt;142.100.64.11&lt;/SSOSPServer&gt;
+&lt;SSOSPServer&gt;142.100.64.12&lt;/SSOSPServer&gt;
+&lt;/SSOSPServers&gt;
+&lt;/device&gt;
+</code></pre>
 <p><br><br>
 <strong>SIP</strong><br><br>
 SIP Phones use a different set of steps to achieve the same goal. Steps 1 to 4 are the same as SCCP Phones, refer the steps as illustrated in the figure: SCCP Phone Boot Process .<br><br>
