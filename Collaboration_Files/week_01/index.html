@@ -603,6 +603,7 @@ utils network capture eth0 file rogue size 300000 src a.b.c.d
 </ul>
 <hr />
 <p><strong>QoS-LAB-02 :</strong> Write a policy on BB router with two way (Header and Payload inspection ) respectivly for matching telnet traffic and try telnet from Cube-1 to BB router. Copy running config for each scenario.</p>
+<p><img alt="" src="../../images/2022-10-17-20-32-16.png" /></p>
 <hr />
 <p><strong>Policing and Shaping Tools</strong></p>
 <p><img alt="" src="../../images/2022-10-09-23-16-29.png" /></p>
@@ -634,6 +635,29 @@ utils network capture eth0 file rogue size 300000 src a.b.c.d
 <p><img alt="" src="../../images/2022-10-09-23-40-29.png" /></p>
 <p><strong>Class Bassed Weighted Fair Queueing (CBWFQ) :</strong> Successor of WFQ, plus we have the ability to create our own Classes for Traffic Classification. It is based on Weights (Bandwidth). <code>By default only 75% of interface traffic is allowed to be assigned by CBWFQ</code>, the other 25% remains for routing protocols and other control plane protocols. </p>
 <p><strong>Low Latency Queueing (LLQ) :</strong> Probably the most wanted tool when it comes to Voice Traffic. Originally same as CBWFQ but the addition to this one is that you can give priority to sensitive traffic (Voice over IP, Video traffic, etc), and as we already know Voice traffic  is sensitive to Latency and/or Jitter, so by giving priority to a particular traffic we are lowering the possibility of packet loss.</p>
+<p><strong>Example of LLQ  Policy Configuration :</strong></p>
+<p>```text</p>
+<p>Router(config)# class-map match-any REALTIME
+Router(config-cmap)# match dscp ef
+Router(config-cmap)# ! Matches VoIP on DSCP EF (per RFC4594)
+Router(config-cmap)# match dscp cs4
+Router(config-cmap)# ! Matches Realtime-Interactive Video on CS4 (per RFC4594)
+Router(config-cmap)#
+Router(config-cmap)# policy-map LLQ2
+Router(config-pmap)# class REALTIME
+Router(config-pmap-c)# priority 500
+Router(config-pmap-c)# ! Combined LLQ for VoIP and Video
+Router(config-pmap-c)# class CALL-SIGNALING
+Router(config-pmap-c)# bandwidth percent 5
+Router(config-pmap-c)# class TRANSACTIONAL-DATA
+Router(config-pmap-c)# bandwidth percent 20
+Router(config-pmap-c)# class BULK-DATA
+Router(config-pmap-c)# bandwidth percent 10
+Router(config-pmap-c)# class class-default
+Router(config-pmap-c)# fair-queue</p>
+<p>````</p>
+<p><img alt="" src="../../images/2022-10-17-21-04-49.png" /></p>
+<p>END OF THIS WEEK PLEASE COMPLATE YOUR LABS BY THE NEXT WEEK</p>
               
             </div>
           </div><footer>
