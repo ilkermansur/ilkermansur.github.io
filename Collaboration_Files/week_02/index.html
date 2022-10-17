@@ -52,6 +52,8 @@
                 </li>
                 <li class="toctree-l2 current"><a class="reference internal current" href="./">Week 2</a>
     <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#css-partition">CSS &amp; Partition</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../week_03/">Week 3</a>
@@ -101,7 +103,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h3 id="week-2-courses-notes">Week 2 Courses Notes</h3>
+                <h2 id="week-2-courses-notes">Week 2 Courses Notes</h2>
+<h3 id="css-partition">CSS &amp; Partition</h3>
+<p>Partitions can be seen as a collection of route patterns. Directory numbers, route patterns, and translation patterns can all belong to specific partitions.</p>
+<p><img alt="" src="../../images/2022-10-17-21-39-46.png" />
+<img alt="" src="../../images/2022-10-17-21-40-18.png" />
+<img alt="" src="../../images/2022-10-17-21-42-49.png" /></p>
+<p>CSS are an ordered list of route partitions and they determine which partitions calling devices must search when they attempt to complete a call. In order to reach a certain destination, the called party's partition must belong to the calling party's CSS.</p>
+<p><img alt="" src="../../images/2022-10-17-21-40-46.png" />
+<img alt="" src="../../images/2022-10-17-21-41-00.png" />
+<img alt="" src="../../images/2022-10-17-21-43-05.png" /></p>
+<p>When you attempt to make a call, Cisco CallManager looks into the CSS of the calling party and checks if the called party belongs to a partition within the CSS. If it does, the call is placed or the translation pattern is executed. If not, the call is rejected or the translation pattern is ignored.</p>
+<p>You can again assign different CSS to <code>IP phones</code>, <code>directory numbers</code>, <code>call forward all(CFA)</code>/<code>call forward no answer (CFNA)</code>/<code>call forward busy (CFB) destinations</code>, <code>gateways</code>, and <code>translation patterns</code>.</p>
+<p>Partitions and CSS facilitate call routing since they divide the route plan into logical subsets based on organization, location, and/or call type.</p>
+<p><img alt="" src="../../images/2022-10-17-21-36-50.png" /></p>
               
             </div>
           </div><footer>
