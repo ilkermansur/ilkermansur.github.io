@@ -209,6 +209,7 @@
 <h3 id="external-route-pattern-architecture">External Route Pattern Architecture</h3>
 <p>Unified CM automatically "knows" how to route calls to internal destinations within the same cluster. For external destinations such as PSTN gateways, SIP trunks, or other Unified CM clusters, you have to use the external route construct (described in the following sections) to configure explicit routing. This construct is based upon a three-tiered architecture that allows for multiple layers of call routing as well as digit manipulation. Unified CM searches for a configured route pattern that matches the external dialed string and uses it to select a corresponding route list, which is a prioritized list of the available paths for the call. These paths are known as route groups and are very similar to trunk groups in traditional PBX terminology.</p>
 <p><img alt="" src="../../images/2022-10-17-23-53-35.png" /></p>
+<p><img alt="" src="../../images/2022-10-18-00-00-44.png" /></p>
 <p><strong>Route Filters :</strong> Use route filters only with the @ route pattern to reduce the number of route patterns created by the @ wildcard. A route filter applied to a pattern not containing the @ wildcard has no effect on the resulting dial plan. For large-scale deployments, use explicit route patterns rather than the @ wildcard and route filters. This practice also facilitates management and troubleshooting because all patterns configured in Unified CM are easily visible from the Route Pattern configuration page.</p>
               
             </div>
