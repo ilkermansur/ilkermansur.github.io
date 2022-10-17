@@ -636,8 +636,8 @@ utils network capture eth0 file rogue size 300000 src a.b.c.d
 <p><strong>Class Bassed Weighted Fair Queueing (CBWFQ) :</strong> Successor of WFQ, plus we have the ability to create our own Classes for Traffic Classification. It is based on Weights (Bandwidth). <code>By default only 75% of interface traffic is allowed to be assigned by CBWFQ</code>, the other 25% remains for routing protocols and other control plane protocols. </p>
 <p><strong>Low Latency Queueing (LLQ) :</strong> Probably the most wanted tool when it comes to Voice Traffic. Originally same as CBWFQ but the addition to this one is that you can give priority to sensitive traffic (Voice over IP, Video traffic, etc), and as we already know Voice traffic  is sensitive to Latency and/or Jitter, so by giving priority to a particular traffic we are lowering the possibility of packet loss.</p>
 <p><strong>Example of LLQ  Policy Configuration :</strong></p>
-<p>```text</p>
-<p>Router(config)# class-map match-any REALTIME
+<p>```
+Router(config)# class-map match-any REALTIME
 Router(config-cmap)# match dscp ef
 Router(config-cmap)# ! Matches VoIP on DSCP EF (per RFC4594)
 Router(config-cmap)# match dscp cs4
@@ -651,7 +651,7 @@ Router(config-pmap-c)# class CALL-SIGNALING
 Router(config-pmap-c)# bandwidth percent 5
 Router(config-pmap-c)# class TRANSACTIONAL-DATA
 Router(config-pmap-c)# bandwidth percent 20
-Router(config-pmap-c)# class BULK-DATA
+Router(config-pmap-c)# class BULK-DATA<br>
 Router(config-pmap-c)# bandwidth percent 10
 Router(config-pmap-c)# class class-default
 Router(config-pmap-c)# fair-queue</p>
