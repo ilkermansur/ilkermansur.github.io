@@ -64,6 +64,8 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pattern-matching-logic">Pattern Matching Logic</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../week_03/">Week 3</a>
@@ -189,6 +191,19 @@
 </ul>
 <p>the phone is configured to recognize all four-digit patterns beginning with 1, and it has an associated timeout value of 0. All user input actions matching these criteria will trigger the sending of a SIP INVITE message to Unified CM</p>
 <p><img alt="" src="../../images/2022-10-17-22-29-05.png" /></p>
+<h3 id="pattern-matching-logic">Pattern Matching Logic</h3>
+<p><img alt="" src="../../images/2022-10-17-23-02-06.png" /></p>
+<hr />
+<p>Example:</p>
+<p>The question mark (?) wildcard matches zero or more occurrences of the preceding digit or wildcard value.</p>
+<ul>
+<li>The route pattern 91X? routes or blocks all numbers in the range 91 through 91999999999999999999999.</li>
+</ul>
+<p>The plus sign (+) wildcard matches one or more occurrences of the preceding digit or wildcard value.</p>
+<ul>
+<li>The route pattern 91X+ routes or blocks all numbers in the range 910 through 91999999999999999999999.</li>
+</ul>
+<hr />
               
             </div>
           </div><footer>
