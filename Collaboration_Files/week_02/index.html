@@ -72,6 +72,8 @@
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#inbound-dial-peer-matching-order">Inbound Dial Peer Matching Order</a>
     </li>
+    <li class="toctree-l4"><a class="reference internal" href="#matching-inbound-dial-peers-by-uri">Matching Inbound Dial Peers by URI</a>
+    </li>
         </ul>
     </li>
     </ul>
@@ -123,8 +125,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="week-2-courses-notes">Week 2 Courses Notes</h2>
-<h3 id="css-partition">CSS &amp; Partition</h3>
+                <h1 id="week-2-courses-notes">Week 2 Courses Notes</h1>
+<h2 id="css-partition">CSS &amp; Partition</h2>
 <p>Partitions can be seen as a collection of route patterns. Directory numbers, route patterns, and translation patterns can all belong to specific partitions.</p>
 <p><img alt="" src="../../images/2022-10-17-21-39-46.png" />
 <img alt="" src="../../images/2022-10-17-21-40-18.png" />
@@ -152,7 +154,7 @@
 <p>Partitions and CSS facilitate call routing since they divide the route plan into logical subsets based on organization, location, and/or call type.</p>
 <p><img alt="" src="../../images/2022-10-17-21-36-50.png" /></p>
 <hr />
-<h3 id="where-do-calls-originate-from">Where Do Calls Originate From ?</h3>
+<h2 id="where-do-calls-originate-from">Where Do Calls Originate From ?</h2>
 <pre><code>- Phones
 - Gateways
 - Trunks
@@ -161,7 +163,7 @@
 - Translation Patterns
 </code></pre>
 <hr />
-<h3 id="enbloc-or-digit-by-digit">Enbloc or Digit-by-Digit</h3>
+<h2 id="enbloc-or-digit-by-digit">Enbloc or Digit-by-Digit</h2>
 <p>For phones using the Skinny Client Control Protocol (SCCP) and for SIP  phones using the Key Press Markup Language (KPML) during dialing, you  can implement pattern recognition in Cisco Unified Communications  Manager (Unified CM) by configuring route patterns, translation  patterns, phone DNs, and so forth. With each digit dialed by the user,  the phone sends a signaling message to Unified CM, which performs the  incremental work of recognizing a matching pattern. As each key press  from the user input is collected, Unified CM's digit analysis provides  appropriate user feedback, such as:</p>
 <ul>
 <li>Playing dial tone when the phone first  goes off-hook</li>
@@ -169,7 +171,7 @@
 <li>Providing secondary dial tone if an  appropriate sequence of digits has been dialed, such as when the off-net  access code 9 is dialed</li>
 </ul>
 <p><img alt="" src="../../images/2022-10-17-22-11-39.png" /></p>
-<h4 id="user-input-on-type-a-sip-phones">User Input on Type-A SIP Phones</h4>
+<h3 id="user-input-on-type-a-sip-phones">User Input on Type-A SIP Phones</h3>
 <p>Type-A phones differ somewhat from Type-B phones in their behavior, and Type-A phones do not offer support for Key Press Markup Language (KPML) as do Type-B phones. </p>
 <ul>
 <li>No SIP Dial Rules Configured on the Phone</li>
@@ -187,7 +189,7 @@
 <p>Type-A phones using SIP dial rules offer a way to dial patterns not explicitly configured on the phone. If a dialed pattern does not match a SIP dial rule, the user can press the Dial key or wait for inter-digit timeout.</p>
 <p>If a particular pattern is recognized by the phone but blocked by Unified CM, the user must dial the entire dial string before receiving an indication that the call is rejected by the system. For instance, if a SIP dial rule is configured on the phone to recognize calls dialed in the form 919765551234 but such calls are blocked by the Unified CM dial plan, the user will receive reorder tone at the end of dialing (after pressing the final 4 key).</p>
 <p><img alt="" src="../../images/2022-10-17-22-23-47.png" /></p>
-<h4 id="user-input-on-type-b-sip-phones">User Input on Type-B SIP Phones</h4>
+<h3 id="user-input-on-type-b-sip-phones">User Input on Type-B SIP Phones</h3>
 <p>Type-B phones differ somewhat from Type-A phones in their behavior, and Type-B phones offer support for Key Press Markup Language (KPML) but Type-A phones do not.</p>
 <ul>
 <li>No SIP Dial Rules Configured on the Phone</li>
@@ -199,7 +201,7 @@
 </ul>
 <p>the phone is configured to recognize all four-digit patterns beginning with 1, and it has an associated timeout value of 0. All user input actions matching these criteria will trigger the sending of a SIP INVITE message to Unified CM</p>
 <p><img alt="" src="../../images/2022-10-17-22-29-05.png" /></p>
-<h3 id="pattern-matching-logic">Pattern Matching Logic</h3>
+<h2 id="pattern-matching-logic">Pattern Matching Logic</h2>
 <p><img alt="" src="../../images/2022-10-17-23-02-06.png" /></p>
 <hr />
 <p>Example:</p>
@@ -212,13 +214,13 @@
 <li>The route pattern 91X+ routes or blocks all numbers in the range 910 through 91999999999999999999999.</li>
 </ul>
 <hr />
-<h3 id="external-route-pattern-architecture">External Route Pattern Architecture</h3>
+<h2 id="external-route-pattern-architecture">External Route Pattern Architecture</h2>
 <p>Unified CM automatically "knows" how to route calls to internal destinations within the same cluster. For external destinations such as PSTN gateways, SIP trunks, or other Unified CM clusters, you have to use the external route construct (described in the following sections) to configure explicit routing. This construct is based upon a three-tiered architecture that allows for multiple layers of call routing as well as digit manipulation. Unified CM searches for a configured route pattern that matches the external dialed string and uses it to select a corresponding route list, which is a prioritized list of the available paths for the call. These paths are known as route groups and are very similar to trunk groups in traditional PBX terminology.</p>
 <p><img alt="" src="../../images/2022-10-17-23-53-35.png" /></p>
 <p><img alt="" src="../../images/2022-10-18-00-00-44.png" /></p>
 <p><strong>Route Filters :</strong> Use route filters only with the @ route pattern to reduce the number of route patterns created by the @ wildcard. A route filter applied to a pattern not containing the @ wildcard has no effect on the resulting dial plan. For large-scale deployments, use explicit route patterns rather than the @ wildcard and route filters. This practice also facilitates management and troubleshooting because all patterns configured in Unified CM are easily visible from the Route Pattern configuration page.</p>
 <p><img alt="" src="../../images/2022-10-18-10-44-42.png" /></p>
-<h3 id="dial-peers">Dial-Peers</h3>
+<h2 id="dial-peers">Dial-Peers</h2>
 <ul>
 <li>Call Legs**</li>
 </ul>
@@ -244,7 +246,7 @@
 * VAD Enable
 * No RSVP
 </code></pre>
-<h4 id="inbound-dial-peer-matching-order">Inbound Dial Peer Matching Order</h4>
+<h3 id="inbound-dial-peer-matching-order">Inbound Dial Peer Matching Order</h3>
 <p>The router or gateway matches the information elements in the setup message with the dial peer attributes to select an inbound dial peer. The router or gateway matches these items in this order:</p>
 <p><strong>1 Called number (DNIS) with the incoming called-number command</strong></p>
 <p>First, the router or gateway attempts to match the called number of the call setup request with the configured incoming called-number of each dial peer. Because call setups always include DNIS information, it is recommended to use the incoming called-number command for inbound dial peer matching. This attribute has matching priority over the answer-address and destination-pattern commands.</p>
@@ -255,7 +257,23 @@
 <p><strong>4 Voice-port (associated with the incoming call setup request) with configured dial peer port (applicable for inbound POTS call legs)</strong></p>
 <p>If no match is found in the step 3, the router or gateway attempts to match the configured dial peer port to the voice-port associated with the incoming call. If multiple dial peers have the same port configured, the dial peer first added in the configuration is matched.</p>
 <p><strong>5 If no match is found in the first four steps, then the default dial peer 0 (pid:0) command is used.</strong></p>
-<p><strong>PS :</strong>In order to match outbound dial peers, the router or gateway uses the dial peer destination-pattern called_number command.</p>
+<p><strong>PS :</strong> In order to match outbound dial peers, the router or gateway uses the dial peer destination-pattern called_number command.</p>
+<h3 id="matching-inbound-dial-peers-by-uri">Matching Inbound Dial Peers by URI</h3>
+<p>The Matching Inbound Dial Peers by URI feature allows you to configure the selection of inbound dial peers by matching parts of the URI sent by a remote (neighboring) SIP entity. The match can be done on different parts of the URI like hostname, IP address, DNS name. This feature can be used to configure configuration policies, enforce specific call-treatment, security, and routing policies on each SIP trunk by originating SIP entity.</p>
+<p><strong>Example</strong></p>
+<pre><code>
+Device(config)# voice class uri 200
+Device(config-voice-uri-class)# host server1
+Device(config-voice-uri-class)# ! host ipv4:10.0.0.0
+Device(config-voice-uri-class)# ! host dns:xxx.yyy.com
+Device(config-voice-uri-class)# exit
+!
+Device(config)# dial-peer voice 6000 voip
+Device(config-dial-peer)# session protocol sipv2
+Device(config-dial-peer)# incoming uri via 200
+Device(config-dial-peer)# end
+
+</code></pre>
               
             </div>
           </div><footer>
