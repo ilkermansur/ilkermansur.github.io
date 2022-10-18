@@ -105,9 +105,59 @@
               
                 <h1 id="labs-01">LABS 01</h1>
 <p><strong>NET-LAB-01 :</strong> Register endpoint to CUCM with using SSCP and SIP respectively and capture from user site.</p>
+<hr />
 <p><strong>QoS-LAB-01 :</strong> Capture file from BB router and analyse COS and DSCP fields in header.</p>
-<p><strong>QoS-LAB-02 :</strong> Write a policy on BB router with two way (Header and Payload inspection ) respectivly for matching telnet traffic and try telnet from Cube-1 to BB router. Copy running config for each scenario.</p>
+<p><a href="https://drive.google.com/file/d/1E1TKdcyr0tTcLVz3kqZkdERQHC8pOzRu/view?usp=sharing">COS DSCP Capture</a></p>
+<hr />
+<hr />
+<p><strong>QoS-LAB-02 :</strong> Write a policy on BB router with two way (Header and Payload inspection ) respectivly for matching (set dscp46) telnet traffic and try telnet from Cube-1 to Cube-2 router. Copy running config for each scenario.</p>
 <p><img alt="" src="../../images/2022-10-17-20-32-16.png" /></p>
+<p><strong>Cube-1 Initial Configuration</strong></p>
+<pre><code>
+interface GigabitEthernet1.1002
+ encapsulation dot1Q 1002
+ ip address 142.102.64.151 255.255.255.0
+ shutdown
+!
+interface GigabitEthernet1.1009
+ encapsulation dot1Q 1009
+ ip address 9.9.9.2 255.255.255.0
+!
+ip route 142.102.64.0 255.255.255.0 9.9.9.1
+
+</code></pre>
+<p><strong>BB Initial Configuration</strong></p>
+<pre><code>
+interface GigabitEthernet1.1009
+ encapsulation dot1Q 1009
+ ip address 9.9.9.1 255.255.255.0
+
+</code></pre>
+<p><strong>Cube-2 Initial Configuration</strong></p>
+<pre><code>ip route 9.9.9.0 255.255.255.0 142.102.64.1
+
+</code></pre>
+<p><strong>Solution</strong></p>
+<p>Configuration on Backbone Router</p>
+<pre><code>ip access-list extended TELNET
+ permit tcp any any eq telnet
+!
+class-map match-all TELNET_SETDSCPEF
+ match access-group name TELNET
+!
+policy-map TELNET_SETDSCPEF
+ class TELNET_SETDSCPEF
+  set dscp ef
+!
+interface GigabitEthernet1.1002
+ service-policy output TELNET_SETDSCPEF
+</code></pre>
+<p><strong>Verification</strong></p>
+<pre><code>BackBone_RT#show monitor capture TELNET buffer brief
+BackBone_RT#monitor capture TELNET export tftp://142.102.64.101/Telnet.pcap
+</code></pre>
+<p><a href="https://drive.google.com/file/d/1BrNF_uht5gh89QryPx5_HdxLXQH9vwCc/view?usp=sharing">capture</a></p>
+<hr />
               
             </div>
           </div><footer>
