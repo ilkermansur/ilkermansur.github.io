@@ -68,6 +68,12 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#external-route-pattern-architecture">External Route Pattern Architecture</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dial-peers">Dial-Peers</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#inbound-dial-peer-matching-order">Inbound Dial Peer Matching Order</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../week_03/">Week 3</a>
@@ -211,6 +217,45 @@
 <p><img alt="" src="../../images/2022-10-17-23-53-35.png" /></p>
 <p><img alt="" src="../../images/2022-10-18-00-00-44.png" /></p>
 <p><strong>Route Filters :</strong> Use route filters only with the @ route pattern to reduce the number of route patterns created by the @ wildcard. A route filter applied to a pattern not containing the @ wildcard has no effect on the resulting dial plan. For large-scale deployments, use explicit route patterns rather than the @ wildcard and route filters. This practice also facilitates management and troubleshooting because all patterns configured in Unified CM are easily visible from the Route Pattern configuration page.</p>
+<p><img alt="" src="../../images/2022-10-18-10-44-42.png" /></p>
+<h3 id="dial-peers">Dial-Peers</h3>
+<ul>
+<li>Call Legs**</li>
+</ul>
+<p><img alt="" src="../../images/2022-10-18-10-50-04.png" /></p>
+<ul>
+<li>Inbound Dial Peer</li>
+<li>Outbound Dial Peer</li>
+</ul>
+<p><a href="../../images/2022-10-18-10-50-35.png"></a></p>
+<ul>
+<li>Equal Cost Path</li>
+<li>Backup Paths</li>
+<li>Dial-Peer Preference (DNIS,ANI,DP)<ul>
+<li>Cube and TDM</li>
+</ul>
+</li>
+<li>Default Dial-Peer</li>
+</ul>
+<p><img alt="" src="../../images/2022-10-18-10-51-20.png" /></p>
+<pre><code>* Any Codec
+* No DTMF Relay
+* DSCP 0
+* VAD Enable
+* No RSVP
+</code></pre>
+<h4 id="inbound-dial-peer-matching-order">Inbound Dial Peer Matching Order</h4>
+<p>The router or gateway matches the information elements in the setup message with the dial peer attributes to select an inbound dial peer. The router or gateway matches these items in this order:</p>
+<p><strong>1 Called number (DNIS) with the incoming called-number command</strong></p>
+<p>First, the router or gateway attempts to match the called number of the call setup request with the configured incoming called-number of each dial peer. Because call setups always include DNIS information, it is recommended to use the incoming called-number command for inbound dial peer matching. This attribute has matching priority over the answer-address and destination-pattern commands.</p>
+<p><strong>2 Calling Number (ANI) with the answer-address command</strong></p>
+<p>If no match is found in step 1, the router or gateway attempts to match the calling number of the call setup request with the answer-address of each dial peer. This attribute can be useful in situations where you want to match calls based on the calling number (initial).</p>
+<p><strong>3 Calling Number (ANI) with the destination-pattern command</strong></p>
+<p>If no match is found in step 2, the router or gateway attempts to match the calling number of the call setup request to the destination-pattern of each dial peer. For more information about this, see the first bullet in the Dial Peer Additional Information section of this document.</p>
+<p><strong>4 Voice-port (associated with the incoming call setup request) with configured dial peer port (applicable for inbound POTS call legs)</strong></p>
+<p>If no match is found in the step 3, the router or gateway attempts to match the configured dial peer port to the voice-port associated with the incoming call. If multiple dial peers have the same port configured, the dial peer first added in the configuration is matched.</p>
+<p><strong>5 If no match is found in the first four steps, then the default dial peer 0 (pid:0) command is used.</strong></p>
+<p><strong>PS :</strong>In order to match outbound dial peers, the router or gateway uses the dial peer destination-pattern called_number command.</p>
               
             </div>
           </div><footer>
