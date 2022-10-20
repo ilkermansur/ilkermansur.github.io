@@ -307,6 +307,7 @@ Device(config-dial-peer)# end
 <li>destination-pattern</li>
 <li>target carrier-id string</li>
 </ul>
+<p><strong>PS :</strong>Route Strings are used with CUCM Intercluster Lookup Service (ILS) and can be configured to allow Cisco Gateways to route VoIP calls via the route-string included in the SIP INVITE received from a CUCM 9.5+ running the ILS service. This feature was added in IOS 15.3(3)M and IOS-XE 3.10S. Most ILS connections are CUCM to CUCM and administrators don't bother involving a CUBE for intercluster trunking. However if we need to perform the function with CUBE in the middle the options are there. CUCM need to have the setting Send ILS Learned Destination Route String enabled on the SIP Profile applied to the SIP Trunk in order to send the x-cisco-dest-route-string header to CUBE.</p>
 <p><strong>Example for carrier-ID</strong></p>
 <pre><code class="language-text">voice source-group foo
 access-control 98
