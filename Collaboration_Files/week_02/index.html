@@ -276,6 +276,63 @@ Device(config-dial-peer)# incoming uri via 200
 Device(config-dial-peer)# end
 
 </code></pre>
+<p><strong>PS :</strong>There is a matching  for cubes.</p>
+<p>for inbound dial peer</p>
+<p><img alt="" src="../../images/2022-10-20-13-48-51.png" /></p>
+<p>for outgoing dial peer</p>
+<p><img alt="" src="../../images/2022-10-20-13-49-41.png" /></p>
+<p><strong>Preference for Dial-Peer Matching</strong></p>
+<p>The following is the order in which inbound dial-peer is matched for SIP call-legs:</p>
+<ul>
+<li>voice class uri URI-class-identifier with incoming uri <code>{via}</code> URI-class-identifier</li>
+<li>voice class uri URI-class-identifier with incoming uri <code>{request}</code> URI-class-identifier</li>
+<li>voice class uri URI-class-identifier with incoming uri <code>{to}</code> URI-class-identifier</li>
+<li>voice class uri URI-class-identifier with incoming uri <code>{from}</code> URI-class-identifier</li>
+<li>incoming called-number <code>DNIS</code> string</li>
+<li>answer-address <code>ANI</code>string</li>
+</ul>
+<p>for H323 call-legs:</p>
+<ul>
+<li>incoming uri <code>{called}</code> URI-class-identifier</li>
+<li>incoming uri <code>{callling}</code> URI-class-identifier</li>
+<li>incoming called-number <code>DNIS</code>string</li>
+<li>answer-address <code>ANI</code> string</li>
+</ul>
+<p>The following is the order in which outbound dial-peer is matched for SIP call-legs:</p>
+<ul>
+<li>destination route-string</li>
+<li>destination URI-class-identifier with target carrier-id string</li>
+<li>destination-pattern with target carrier-id string</li>
+<li>destination URI-class-identifier</li>
+<li>destination-pattern</li>
+<li>target carrier-id string</li>
+</ul>
+<p><strong>Example for carrier-ID</strong></p>
+<pre><code class="language-text">voice source-group foo
+access-control 98
+carrier-id source carrier1
+
+voice source-group bar
+access-control 99
+carrier-id source carrier2
+
+dial-peer voice 100 pots
+carrier-id source carrier1
+...
+
+dial-peer voice 200 pots
+carrier-id source carrier2
+...
+
+ip access-control standard 98
+permit 1.1.1.1
+
+ip access-control standard 99
+permit 2.2.2.2
+deny any any
+
+</code></pre>
+<p>With the previous configuration, calls from 1.1.1.1 are routed through dial-peer 100, and calls from 2.2.2.2 are routed through dial-peer 200.</p>
               
             </div>
           </div><footer>
