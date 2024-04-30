@@ -908,49 +908,52 @@ Hostname</p>
 </ul>
 <p><img alt="" src="../images/2023-05-15-16-28-58.png" /></p>
 <ul>
-<li>Step 9 - Configure <code>System Name</code> on expc and expe</li>
+<li>Step 9 - Enable mobile and remote access under <code>Unified Communications</code> both expc and expe</li>
+</ul>
+<p><img alt="" src="../images/2024-04-28-20-23-51.png" /></p>
+<p><img alt="" src="../images/2024-04-28-20-27-25.png" /></p>
+<ul>
+<li>Step 10 - Define Domain under <code>Domain</code> (PS:This must be before CSR request)</li>
+</ul>
+<p><img alt="" src="../images/2024-04-28-20-29-46.png" /></p>
+<ul>
+<li>Step 11 - Configure <code>System Name</code> on expc and expe</li>
 </ul>
 <p><img alt="" src="../images/2023-05-15-16-49-53.png" /></p>
 <ul>
-<li>Step 10 - Generate CSR fron expc and expe</li>
+<li>Step 12 - Generate CSR fron expc and expe</li>
 </ul>
 <p>Mainteance -&gt; Security -&gt; Server Certificate</p>
 <p><img alt="" src="../images/2023-05-15-17-12-42.png" /></p>
 <ul>
-<li>Step 11 - Sign CSR on CA with configured certificate template (web and client authentication). Download certificate with Base 64 encoded.</li>
+<li>Step 13 - Sign CSR on CA with configured certificate template (web and client authentication). Download certificate with Base 64 encoded.</li>
 </ul>
 <p><img alt="" src="../images/2023-05-15-18-58-18.png" />
 <img alt="" src="../images/2023-05-15-18-56-19.png" /></p>
 <ul>
-<li>Step 12 - Download ca root certificate and upload to server for trusted CA certificate.
-Mainteance -&gt; Security -&gt; Trusted CA certificate</li>
+<li>Step 14 - Download ca root certificate and upload to server for trusted CA certificate.
+Mainteance -&gt; Security -&gt; Trusted CA certificate.</li>
 </ul>
+<p>PS: After version 14.0.2 you should also upload <code>Tomcat ECDSA</code> cerviticate as on  a trust store of expc (only expc) or disable check mechanism on expc (only expc)</p>
 <p><img alt="" src="../images/2023-05-15-19-02-19.png" />
 <img alt="" src="../images/2023-05-15-19-03-07.png" />
 <img alt="" src="../images/2023-05-15-19-04-31.png" /></p>
+<p><code>xConfiguration EdgeConfigServer VerifyOriginServer: Off</code></p>
 <ul>
-<li>Step 13 - Upload signed certificate to expc and expe
+<li>Step 15 - Upload signed certificate to expc and expe
 Mainteance -&gt; Security -&gt; Server Certificate</li>
 </ul>
 <p><img alt="" src="../images/2023-05-15-19-07-45.png" /></p>
 <ul>
-<li>Step 14 - Repeat this all procedures for expe</li>
-<li>Step 15 - Enable <code>SIP</code> TCP / UDP / TLS on expc and expe</li>
+<li>
+<p>Step 16 - Repeat this all procedures for expe</p>
+</li>
+<li>
+<p>Step 17 - Enable <code>SIP</code> TCP / UDP / TLS on expc and expe</p>
+</li>
 </ul>
 <p>Configuration -&gt; Protocols -&gt; SIP</p>
 <p><img alt="" src="../images/2023-05-16-10-32-33.png" /></p>
-<ul>
-<li>Step 16 - Enable <code>MRA</code> from expc and expe
-Configuration -&gt; Unified Commnications -&gt; Configuration</li>
-</ul>
-<p><img alt="" src="../images/2023-05-16-10-43-42.png" />
-<img alt="" src="../images/2023-05-16-10-44-14.png" /></p>
-<ul>
-<li>Step 17 - Create <code>Domain</code></li>
-</ul>
-<p>Configuration -&gt; Domains</p>
-<p><img alt="" src="../images/2023-05-16-10-49-00.png" />
-<img alt="" src="../images/2023-05-16-10-50-07.png" /></p>
 <ul>
 <li>Step 18 - Add CUCM to expc
 Configuration -&gt; Unified Commnications -&gt; Configuration -&gt; Unified CM Servers</li>
@@ -983,6 +986,10 @@ Configuration -&gt; Zone -&gt; Zones</li>
 </ul>
 <p><img alt="" src="../images/2023-05-16-11-19-23.png" />
 <img alt="" src="../images/2023-05-16-11-22-41.png" /></p>
+<ul>
+<li>Step 24 - Check registered user</li>
+</ul>
+<p><img alt="" src="../images/2024-04-28-21-19-12.png" /></p>
 
 
 
