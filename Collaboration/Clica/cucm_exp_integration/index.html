@@ -439,6 +439,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    CUCM & Expressway Integration
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -448,6 +459,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#b2b-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      B2B Configuration
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -849,6 +888,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#b2b-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      B2B Configuration
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -990,6 +1046,64 @@ Configuration -&gt; Zone -&gt; Zones</li>
 <li>Step 24 - Check registered user</li>
 </ul>
 <p><img alt="" src="../images/2024-04-28-21-19-12.png" /></p>
+<h2 id="b2b-configuration">B2B Configuration<a class="headerlink" href="#b2b-configuration" title="Permanent link">&para;</a></h2>
+<p>Notice that, there is no <code>SIP Trunk</code> or like that. No need to configuration from CUCM to EXPc direction. MRA is one way operation thar is from EXPe to EXPc and EXPc to CUCM .</p>
+<p>But , In B2B there are two directions process.</p>
+<p>In this design, the Expressway-C is already configured for mobile and remote access. Port 5060 is used
+for line-side registrations of endpoints in mobile and remote access scenario. A SIP trunk cannot be
+formed between Expressway-C and CUCM by using port 5060 because the CUCM cannot accept lineside and trunk-side communication from the same device using the same port.</p>
+<p>Thus the SIP trunk from Expressway-C to CUCM has to use another SIP port on the CUCM incoming side.
+This design uses <code>5560</code> as the SIP trunk incoming port. You can change the SIP incoming port by creating a
+new SIP trunk security profile and assigning this profile to the SIP trunk created between CUCM and
+Expressway-C.</p>
+<ul>
+<li>Step 1 - Navigate to System &gt; Security &gt; SIP Trunk Security Profile and click Add New for B2B call.</li>
+</ul>
+<p><img alt="" src="../images/2024-04-28-21-55-12.png" /></p>
+<ul>
+<li>Step 2 - Create <code>SIP Trunk</code> for expressway-C with <code>Sip Trunk Security Profile</code> that we create previous step.</li>
+</ul>
+<p><img alt="" src="../images/2024-04-28-22-00-07.png" /></p>
+<ul>
+<li>Step 3 - Configure SIP route pattern on CUCM for B2B</li>
+</ul>
+<p><img alt="" src="../images/2024-04-28-22-02-31.png" /></p>
+<ul>
+<li>Step 4 - Configure neighbor zone on Expressway-C for CUCM</li>
+</ul>
+<p><img alt="" src="../images/2024-04-28-22-06-36.png" />
+<img alt="" src="../images/2024-04-28-22-07-54.png" />
+<img alt="" src="../images/2024-04-28-22-08-45.png" /></p>
+<ul>
+<li>Step 5 - Configure traversal client zone on Expressway-C and Traversal server zone on Expressway-E</li>
+</ul>
+<p><img alt="" src="../images/2024-04-28-22-17-06.png" />
+<img alt="" src="../images/2024-04-28-22-18-47.png" />
+<img alt="" src="../images/2024-04-28-22-19-32.png" /></p>
+<ul>
+<li>Step 6 - Configure search rules on Expressway-C</li>
+</ul>
+<p><img alt="" src="../images/2024-04-28-22-26-50.png" />
+<img alt="" src="../images/2024-04-28-22-31-50.png" /></p>
+<ul>
+<li>Step 7 - Configure transform on Expressway-C</li>
+</ul>
+<p><img alt="" src="../images/2024-04-28-22-38-06.png" /></p>
+<p>PS : [] means not, [^@] not begin <code>@</code> sign, [^@]* means any character but not begin <code>@</code> sign </p>
+<ul>
+<li>Step 8 - Configure DNS Zone on Expressway-E</li>
+</ul>
+<p><img alt="" src="../images/2024-04-28-22-47-26.png" />
+<img alt="" src="../images/2024-04-28-22-48-03.png" /></p>
+<ul>
+<li>Step 9 - Configure searchrule on Expressway-E</li>
+</ul>
+<p><img alt="" src="../images/2024-04-28-22-51-42.png" />
+<img alt="" src="../images/2024-04-28-22-54-59.png" /></p>
+<ul>
+<li>Step 10 - Configure transform on Expressway-E</li>
+</ul>
+<p><img alt="" src="../images/2024-04-28-22-56-55.png" /></p>
 
 
 
