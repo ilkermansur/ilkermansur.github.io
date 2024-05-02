@@ -20,7 +20,7 @@
     
     
       
-        <title>CLCEI - Ilker Mansur Homepage</title>
+        <title>CUCM & EXP Integration - Ilker Mansur Homepage</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#clcei" class="md-skip">
+        <a href="#cucm-exp-integration" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CLCEI
+              CUCM & EXP Integration
             
           </span>
         </div>
@@ -443,7 +443,7 @@
           
   
   <span class="md-ellipsis">
-    CLCEI
+    CUCM & EXP Integration
   </span>
   
 
@@ -454,7 +454,7 @@
         
   
   <span class="md-ellipsis">
-    CLCEI
+    CUCM & EXP Integration
   </span>
   
 
@@ -1179,7 +1179,7 @@
   
 
 
-<h1 id="clcei">CLCEI<a class="headerlink" href="#clcei" title="Permanent link">&para;</a></h1>
+<h1 id="cucm-exp-integration">CUCM &amp; EXP Integration<a class="headerlink" href="#cucm-exp-integration" title="Permanent link">&para;</a></h1>
 <h2 id="expressway-integration-and-mra-configuration">Expressway Integration and MRA Configuration<a class="headerlink" href="#expressway-integration-and-mra-configuration" title="Permanent link">&para;</a></h2>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>hqexpc.cciecollab.com (HOST-A) - 192.168.80.121/24
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>hqexpe.cciecollab.com (HOST-A) - 192.168.80.122/24
@@ -1581,13 +1581,15 @@ expression syntax.</p>
 </thead>
 <tbody>
 <tr>
-<td></td>
-<td></td>
+<td>(?!.<em><a class="magiclink magiclink-github magiclink-mention" href="https://github.com/cciecollab" title="GitHub User: cciecollab">@cciecollab</a>.com$).</em></td>
+<td>anything that does not have cciecollab.com in it matches</td>
+</tr>
+<tr>
+<td>(?!.<em>@%localdomains%.</em>$).*</td>
+<td>Match all non-local domains</td>
 </tr>
 </tbody>
 </table>
-<p>| (?!.<em><a class="magiclink magiclink-github magiclink-mention" href="https://github.com/cciecollab" title="GitHub User: cciecollab">@cciecollab</a>.com<span class="arithmatex">\().* | anything that does not have cciecollab.com in it matches |
-| (?!.*@%localdomains%.*\)</span>).</em> | Match all non-localdomains |</p>
 <h3 id="replace-string">Replace String<a class="headerlink" href="#replace-string" title="Permanent link">&para;</a></h3>
 <hr />
 <table>
