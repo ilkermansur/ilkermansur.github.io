@@ -455,6 +455,57 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#expressway-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expressway Concept
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Expressway Concept">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smart-license" class="md-nav__link">
+    <span class="md-ellipsis">
+      Smart License
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expressway-server-capacity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expressway Server Capacity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mra-media-path-flows" class="md-nav__link">
+    <span class="md-ellipsis">
+      MRA Media Path Flows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firewall-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Firewall Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#expressway-integration-and-mra-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       Expressway Integration and MRA Configuration
@@ -1067,6 +1118,57 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#expressway-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expressway Concept
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Expressway Concept">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smart-license" class="md-nav__link">
+    <span class="md-ellipsis">
+      Smart License
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expressway-server-capacity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expressway Server Capacity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mra-media-path-flows" class="md-nav__link">
+    <span class="md-ellipsis">
+      MRA Media Path Flows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firewall-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Firewall Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#expressway-integration-and-mra-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       Expressway Integration and MRA Configuration
@@ -1223,7 +1325,59 @@
 
 
 <h1 id="cucm-exp-integration">CUCM &amp; EXP Integration<a class="headerlink" href="#cucm-exp-integration" title="Permanent link">&para;</a></h1>
+<h2 id="expressway-concept">Expressway Concept<a class="headerlink" href="#expressway-concept" title="Permanent link">&para;</a></h2>
+<p>In the realm of networking, "Expressway" typically refers to a type of solution provided by Cisco, known as Cisco Expressway. Cisco Expressway is a versatile, secure collaboration gateway that allows users outside the corporate firewall to access various collaboration services. It's commonly used in conjunction with Cisco Unified Communications Manager (CUCM) and Cisco Unified Communications Manager IM and Presence Service (CUCM IM&amp;P), enabling secure remote access to services such as voice, video, content sharing, and instant messaging.</p>
+<p>Here are some key concepts related to Cisco Expressway:</p>
+<ol>
+<li><strong>Traversal Zones</strong>: These are secure communication links between Expressway-C (located within the corporate network) and Expressway-E (located in the DMZ or external network). Traversal zones facilitate communication between internal and external endpoints while maintaining security.</li>
+</ol>
+<p>Example: Imagine you have a remote worker using a Cisco Jabber client on their laptop. The laptop connects to Expressway-E outside the corporate network, which then communicates securely with Expressway-C inside the network, allowing the user to make VoIP calls or access other collaboration services.</p>
+<ol>
+<li><strong>Mobile and Remote Access (MRA)</strong>: This feature of Cisco Expressway allows external users, such as telecommuters or mobile workers, to securely connect to the corporate network and utilize collaboration services as if they were within the office environment.</li>
+</ol>
+<p>Example: An employee working from home can use their Cisco Jabber client to make a voice call to a colleague's office phone. The call is securely transmitted through Cisco Expressway, providing a seamless experience regardless of the user's location.</p>
+<ol>
+<li><strong>Secure Communication</strong>: Expressway uses various encryption and authentication methods to ensure the security of communications between internal and external endpoints. This includes TLS (Transport Layer Security) for encryption and certificate-based authentication.</li>
+</ol>
+<p>Example: When a user logs into their Cisco Jabber client from a remote location, Expressway verifies their credentials using certificates or other authentication mechanisms before granting access to collaboration services.</p>
+<ol>
+<li><strong>Integration with Third-Party Applications</strong>: Besides Cisco collaboration tools, Expressway can also integrate with third-party applications and devices, enabling interoperability and extending the reach of collaboration services.</li>
+</ol>
+<p>Example: Expressway can facilitate communication between a Cisco video conferencing system and a third-party SIP-based video conferencing endpoint, allowing users on different platforms to join the same virtual meeting.</p>
+<p>Overall, Cisco Expressway plays a crucial role in enabling secure, remote collaboration for organizations, ensuring that users can access essential communication services from anywhere without compromising security.</p>
+<p><img alt="" src="../images/2024-05-05-16-35-51.png" /></p>
+<h3 id="smart-license">Smart License<a class="headerlink" href="#smart-license" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="../images/2024-05-05-16-39-07.png" /></p>
+<ul>
+<li>Smart Licensing was introduced in version X12.6. The PAK license has continued until version 14.2. </li>
+<li>Expressway supports PAK based licensing (regular option keys) and Smart Licensing. Only one mode at any given time. </li>
+<li>After version 14.2, only Smart Licensing is supported.</li>
+</ul>
+<h3 id="expressway-server-capacity">Expressway Server Capacity<a class="headerlink" href="#expressway-server-capacity" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="../images/2024-05-05-16-46-11.png" /></p>
+<p><img alt="" src="../images/2024-05-05-16-46-43.png" /></p>
+<h3 id="mra-media-path-flows">MRA Media Path Flows<a class="headerlink" href="#mra-media-path-flows" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Outside to Outside</li>
+</ul>
+<p><img alt="" src="../images/2024-05-05-16-56-22.png" /></p>
+<p><img alt="" src="../images/2024-05-05-16-58-49.png" /></p>
+<ul>
+<li>Outside to Inside</li>
+</ul>
+<p><img alt="" src="../images/2024-05-05-16-57-33.png" /></p>
+<h3 id="firewall-configuration">Firewall Configuration<a class="headerlink" href="#firewall-configuration" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Between <code>OUTSIDE</code> and  <code>EXPe</code></li>
+</ul>
+<p><img alt="" src="../images/2024-05-05-17-04-19.png" /></p>
+<ul>
+<li>Between <code>EXPe</code> and  <code>EXPc</code></li>
+</ul>
+<p><img alt="" src="../images/2024-05-05-17-08-10.png" /></p>
 <h2 id="expressway-integration-and-mra-configuration">Expressway Integration and MRA Configuration<a class="headerlink" href="#expressway-integration-and-mra-configuration" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="../images/2024-05-05-16-47-56.png" /></p>
+<p><img alt="" src="../images/2024-05-05-16-48-41.png" /></p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>hqexpc.cciecollab.com (HOST-A) - 192.168.80.121/24
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>hqexpe.cciecollab.com (HOST-A) - 192.168.80.122/24
 </span></code></pre></div>
