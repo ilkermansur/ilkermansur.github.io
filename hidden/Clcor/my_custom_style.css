@@ -1,0 +1,49 @@
+/* Kapak slaytının özelleştirilmesi */
+
+section:first-of-type {
+    position: relative; /* ::before için pozisyonlama */
+    background-image: url('images/9800_phones.png');
+    background-size: cover; /* Görselin tamamen kapsaması için */
+    background-repeat: no-repeat; /* Tekrarlamayı önlemek için */
+    overflow: hidden; /* ::before'un dışarı taşmasını önler */
+}
+
+.reveal .slides > section:first-child h1 {
+    font-size: 60px;
+    color: black;
+    text-align: left;
+    z-index: 2; /* Yazının flu efektten üstte görünmesi için */
+}
+
+
+.reveal .slides > section:first-child p {
+    margin-left: 10px;
+    font-size: 20px;
+    text-align: left;
+    color: whitesmoke;
+}
+
+.reveal p {
+    text-align: left;
+}
+
+.reveal .slides img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 eşit sütun */
+    gap: 20px; /* Sütunlar arasında boşluk */
+    align-items: start; /* İçeriği üstte hizala */
+}
+
+.two-columns > div {
+    padding: 10px;
+    border: 1px solid #ddd; /* İsteğe bağlı: Sütunlara çerçeve ekler */
+    border-radius: 5px; /* İsteğe bağlı: Kenarları yuvarlatır */
+    background-color: #f9f9f9; /* İsteğe bağlı: Hafif bir arka plan rengi */
+}
