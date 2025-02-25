@@ -1,0 +1,21 @@
+nav:
+    - HomePage: index.md
+    - Collaboration:
+        - Collaboration Automation:
+            - CUCM Automation (clauto): collaboration/clauto/clauto.md
+        - Collaboration Apps:
+            - Cucm Unity Integration : collaboration/clica/cucm_cuc_integration.md
+            - Cucm Expressway Integration: collaboration/clica/cucm_exp_integration.md
+            - Cucm Presence Integration: collaboration/clica/cucm_imp_integration.md 
+        - Sip:
+            - Fundamental of SIP: collaboration/fosip/fosip.md
+        - Cisco Meeting Server:
+            - CMS Basic Installation: collaboration/icms/cms.md
+            - CMS DB Cluster: collaboration/icms/cms_db_cluster.md
+        - Contact Center:
+            - Contact Center Express: collaboration/uccxd/uccxd.md
+    - devnet
+    - enterprise
+
+ignore:
+    - hiden/
